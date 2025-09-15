@@ -1,5 +1,8 @@
+const db = require ('../localData/localData');
+
 const productController = {
     productDetail: function(req, res) {
+        productos = localData.productos;
         const idEncontrado = req.params.id;
       
         let idprod = req.params.id;
@@ -12,7 +15,7 @@ const productController = {
         })
         .then(function(producto){
             //return res.send(producto)
-            return res.render("product", {producto : producto, user: req.session.user})
+            return res.render("product", {producto : db.productos, user: req.session.user})
         })
     },
 

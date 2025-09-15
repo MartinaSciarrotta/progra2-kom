@@ -35,13 +35,13 @@
 					<section class="product-box"> 
 						<a href='/product/detalle/<%= proddd[i].id %>'> 
 							<figure class="product-box_image"> 
-								<img src="<%= proddd[i].imagen %>" alt=""> 
+								<img src="<%= proddd[i].imagenArchivo%>" alt=""> 
 							</figure> 
 							<article class="product-box_data"> 
-								<h2><%= proddd[i].nombre %></h2> 
+								<h2><%= proddd[i].nombreProducto %></h2> 
 								<p><%= proddd[i].descripcion %></p> 
-								<p> <strong> Vendedor/a: </strong> <%= proddd[i].usuario.nombre %></p>
-								<p> <strong> Comentarios: </strong> <%= proddd[i].comentarios.length %></p> 
+								<p> <strong> Vendedor/a: </strong> <%= proddd[i].usuario_nombre %></p>
+								<p> <strong> Comentarios: </strong> <%= commm.length %></p> 
 							</article>
 						</a> 
 					</section> 

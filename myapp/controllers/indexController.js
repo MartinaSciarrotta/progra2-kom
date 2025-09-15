@@ -1,8 +1,8 @@
-var products = require('../models/products');
+var db = require('../localData/localData');
 
 const indexController = {
   index: function(req, res) {
-    res.render('partials/index', { proddd: products });
+    res.render('partials/index', { proddd: db.productos , usuariooo: db.usuario, commm: db.comentarios});
   },
 
   login: function(req, res) {
@@ -13,6 +13,7 @@ const indexController = {
     res.render('partials/register');
   },
 
+  
   searchResults: function (req, res) {
                
     db.Producto.findAll({
@@ -37,12 +38,13 @@ const indexController = {
     })
 },
 
+
   profile: function(req, res) {
     res.render('partials/profile');
   },
 
   logout: function(req,res){
-    res.render("partials/index", { proddd: products });
+    res.render("partials/index", { proddd: db.productos });
   }
 };
 
