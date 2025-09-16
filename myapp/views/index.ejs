@@ -1,20 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link width="" rel="shortcut icon" href="./images/logo-auto-luxe.jpg" />
-	<title> Mercado Liebre Argentina</title>
-	<!-- Font Awesome Stylesheet -->
-	<link rel="stylesheet" href="/stylesheets/app.css">
-	<link rel="stylesheet" href="/stylesheets/bootstrap-grid.min.css">
-	<link rel="stylesheet" href="/stylesheets/style.css">
-</head>
+<%- include('partials/head') %>
 
 <body>
 	<!-- Header -->
-	<%- include('header') %>
+	<%- include('partials/header') %>
 	<!-- /Header -->
 	
 	<!-- Banner -->
@@ -35,7 +26,7 @@
 					<section class="product-box"> 
 						<a href='/product/detalle/<%= proddd[i].id %>'> 
 							<figure class="product-box_image"> 
-								<img src="<%= proddd[i].imagenArchivo%>" alt=""> 
+								<img src="/images/products/<%= proddd[i].imagenArchivo %>" alt=""> 
 							</figure> 
 							<article class="product-box_data"> 
 								<h2><%= proddd[i].nombreProducto %></h2> 

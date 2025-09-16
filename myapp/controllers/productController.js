@@ -14,17 +14,16 @@ const productController = {
             ]
         })
         .then(function(producto){
-            //return res.send(producto)
-            return res.render("product", {producto : db.productos, user: req.session.user})
+            return res.render("product", {producto : producto, user: req.session ? req.session.user : null})
         })
     },
 
     productAdd: function(req, res) {
-        res.render('partials/product-add');
+        res.render('product-add');
     },
 
     productEdit: function(req, res) {
-        res.render('partials/product-edit');
+        res.render('product-edit');
     }
 };
 

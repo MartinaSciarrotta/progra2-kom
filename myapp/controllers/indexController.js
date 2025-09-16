@@ -2,15 +2,15 @@ var db = require('../localData/localData');
 
 const indexController = {
   index: function(req, res) {
-    res.render('partials/index', { proddd: db.productos , usuariooo: db.usuario, commm: db.comentarios});
+    res.render('index', { proddd: db.productos , usuariooo: db.usuario, commm: db.comentarios});
   },
 
   login: function(req, res) {
-    res.render('partials/login');
+    res.render('login');
   },
 
   register: function(req, res) {
-    res.render('partials/register');
+    res.render('register');
   },
 
   
@@ -40,11 +40,11 @@ const indexController = {
 
 
   profile: function(req, res) {
-    res.render('partials/profile');
+    res.render('profile');
   },
 
   logout: function(req,res){
-    res.render("partials/index", { proddd: db.productos });
+    res.render("index", { proddd: db.productos });
   }
 };
 
