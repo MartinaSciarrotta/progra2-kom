@@ -3,45 +3,26 @@ USE database1;
 
 CREATE TABLE usuarios (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    email VARCHAR(100) NOT NULL UNIQUE, 
-    contrasena VARCHAR(100) NOT NULL,
-    fotoPerfil VARCHAR(100) NOT NULL,
+    email VARCHAR(500) NOT NULL UNIQUE, 
+    contrasena VARCHAR(500) NOT NULL,
+    fotoPerfil VARCHAR(500) NOT NULL,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     deletedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
     id_usuario INT UNSIGNED
 );
 
-INSERT INTO usuarios (email, contrasena, fotoPerfil, id_usuario) VALUES
-    ('juan.perez@gmail.com', 'clave123', 'juan.jpg', 1),
-    ('maria.garcia@gmail.com', 'pass456', 'maria.png', 2),
-    ('carlos.lopez@gmail.com', 'qwerty789', 'carlos.jpeg', 3),
-    ('ana.sanchez@gmail.com', 'abc123', 'ana.jpg', 4),
-    ('lucas.fernandez@gmail.com', 'secreto987', 'lucas.png', 5);
-
 CREATE TABLE productos (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     usuario_id INT UNSIGNED NOT NULL,
-    imagenArchivo VARCHAR(100) NOT NULL, 
-    nombreProducto VARCHAR(100) NOT NULL,
+    imagenArchivo VARCHAR(500) NOT NULL, 
+    nombreProducto VARCHAR(500) NOT NULL,
     descripcion TEXT NOT NULL,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     deletedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );
-
-INSERT INTO productos (imagenArchivo, nombreProducto, descripcion, usuario_id) VALUES
-    ('bmw_m3.jpg', 'BMW M3', 'Sedán deportivo con gran potencia y estilo.', 1),
-    ('bmw_m2.jpg', 'BMW M2', 'Coupé compacto ágil y veloz.', 3),
-    ('mercedes_a45s.jpg', 'Mercedes A45s', 'Hatchback AMG con alto rendimiento.', 5),
-    ('mercedes_c63s.jpg', 'Mercedes C63s', 'Sedán AMG con motor potente.', 4),
-    ('audi_s3.jpg', 'Audi S3', 'Compacto deportivo con tracción quattro.', 4),
-    ('audi_rs3.jpg', 'Audi RS3', 'Versión extrema del A3, muy rápida.', 2),
-    ('bmw_m5.jpg', 'BMW M5', 'Sedán de lujo con espíritu deportivo.', 3),
-    ('audi_r8.jpg', 'Audi R8', 'Superdeportivo icónico con diseño agresivo.', 1),
-    ('mercedes_g500.jpg', 'Mercedes G500', 'SUV clásico con lujo y fuerza.', 5),
-    ('bmw_x5.jpg', 'BMW X5', 'SUV premium con espacio y confort.', 1);
 
 CREATE TABLE comentarios (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
@@ -54,6 +35,25 @@ CREATE TABLE comentarios (
     FOREIGN KEY (id_post) REFERENCES productos(id), 
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
 ); 
+
+INSERT INTO usuarios (email, contrasena, fotoPerfil, id_usuario) VALUES
+    ('juan.perez@gmail.com', 'clave123', 'juan.jpg', 1),
+    ('maria.garcia@gmail.com', 'pass456', 'maria.png', 2),
+    ('carlos.lopez@gmail.com', 'qwerty789', 'carlos.jpeg', 3),
+    ('ana.sanchez@gmail.com', 'abc123', 'ana.jpg', 4),
+    ('lucas.fernandez@gmail.com', 'secreto987', 'lucas.png', 5);
+
+INSERT INTO productos (imagenArchivo, nombreProducto, descripcion, usuario_id) VALUES
+    ('bmw_m3.jpg', 'BMW M3', 'Sedán deportivo con gran potencia y estilo.', 1),
+    ('bmw_m2.jpg', 'BMW M2', 'Coupé compacto ágil y veloz.', 3),
+    ('mercedes_a45s.jpg', 'Mercedes A45s', 'Hatchback AMG con alto rendimiento.', 5),
+    ('mercedes_c63s.jpg', 'Mercedes C63s', 'Sedán AMG con motor potente.', 4),
+    ('audi_s3.jpg', 'Audi S3', 'Compacto deportivo con tracción quattro.', 4),
+    ('audi_rs3.jpg', 'Audi RS3', 'Versión extrema del A3, muy rápida.', 2),
+    ('bmw_m5.jpg', 'BMW M5', 'Sedán de lujo con espíritu deportivo.', 3),
+    ('audi_r8.jpg', 'Audi R8', 'Superdeportivo icónico con diseño agresivo.', 1),
+    ('mercedes_g500.jpg', 'Mercedes G500', 'SUV clásico con lujo y fuerza.', 5),
+    ('bmw_x5.jpg', 'BMW X5', 'SUV premium con espacio y confort.', 1);
 
 INSERT INTO comentarios (textoComentario, id_post, id_usuario) VALUES
     ('Excelente auto, gran comodidad.', 1, 2),
