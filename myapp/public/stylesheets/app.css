@@ -479,6 +479,74 @@ textarea.form-input {
   padding: 15px;
 }
 
+/* Caja de registro */
+.formulario-box {
+  background-color: #f5f0e6; /* beige suave */
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 400px;
+  margin: 40px auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.formulario-box h2 {
+  text-align: center;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.formulario-box label {
+  display: block;
+  text-align: left;
+  margin: 10px 0 5px;
+  color: #8f7d73;
+}
+
+.formulario-box input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+.formulario-box button {
+  width: 100%;
+  padding: 12px;
+  background-color: #d5b888; /* color dorado del sitio */
+  border: none;
+  border-radius: 6px;
+  color: #000;
+  font-weight: bold;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 19px;
+}
+
+.formulario-box button:hover {
+  background-color: #c4a772;
+  color: #fff;
+}
+
+.recordarme {
+  display: flex;
+  justify-content: flex-end; /* alinea todo a la derecha */
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.recordarme input {
+  margin: 0;
+  width: auto;
+}
+
+.recordarme label {
+  margin: 0;
+  margin-left: 6px; /* separación entre el checkbox y el texto */
+  font-size: 14px;
+  color: #333;
+  font-size: 18px;
+}
+
 /*---------profile--------*/
 .info-usuario{
   border-bottom: 1px solid #ccc;
