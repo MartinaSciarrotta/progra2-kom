@@ -1,8 +1,8 @@
-/*====== Fonts ======*/
+/*---------Fonts--------*/
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
 
 
-/*====== Variables ======*/
+/*---------Variables--------*/
 :root {
   --yellow: #000000;
   --dark-blue: #03264C;
@@ -16,8 +16,8 @@
 
 
 
-/*====== Basics ======*/
-* {
+/*---------Basics--------*/
+•⁠  ⁠{
   box-sizing: border-box;
 }
 
@@ -44,7 +44,7 @@ ol {
 a {
   display: inline-block;
   text-decoration: none;
-  color: inherit;
+  color: #000000;
 }
 
 figure {
@@ -67,7 +67,7 @@ hr {
 }
 
 
-/*====== Main Header ======*/
+/*---------Main Header--------*/
 .main-header {
   padding: 15px 0;
   background-color: var(--yellow);
@@ -98,7 +98,7 @@ hr {
   padding: 7px 35px 7px 7px;
   border-radius: 3px;
   height: 40px;
-  font-size: 1.5em;
+  font-size: 18px;
 }
 
 .search-form_button {
@@ -113,7 +113,7 @@ hr {
 }
 
 
-/*====== Main Navbar ======*/
+/*---------Main Nav Bar--------*/
 .btn-toggle-navbar {
   background-color: var(--dark-blue);
   color: #ffffff;
@@ -170,7 +170,7 @@ hr {
 
 
 
-/*====== Banner ======*/
+/*---------Banner--------*/
 .banner {
   background-image: url(/images/img-home-banner.jpg);
   background-repeat: no-repeat;
@@ -180,16 +180,16 @@ hr {
 }
 
 
-/*====== Products ======*/
+/*---------Products--------*/
 .products-wrapper {
-  margin-top: 30px;
+  margin-top: 70px;
   margin-bottom: 30px;
 }
 
 .products-title {
   font-size: 2.4em;
   font-weight: 400;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .product-box {
@@ -265,7 +265,7 @@ hr {
 }
 
 .noproducts {
-  text-align: center
+  text-align: center;
 }
 
 .product-box:hover {
@@ -282,7 +282,8 @@ hr {
   box-shadow: 0 0 5px var(--green);
 }
 
-/*====== Footer ======*/
+
+/*---------Footer--------*/
 .main-footer {
   background-color: #ffffff;
   padding: 20px 0;
@@ -322,7 +323,7 @@ hr {
 }
 
 
-/*====== Product Detail ======*/
+/*---------product detail--------*/
 .product-detail {
   background-color: #ffffff;
   border-radius: 8px;
@@ -422,7 +423,7 @@ hr {
   background-color: rgb(248, 69, 37);
 }
 .comments {
-  padding: 30px 15px 15px 0;
+  padding: 15px;
 }
 .comments article{
   margin-bottom: 7.5px;
@@ -448,7 +449,7 @@ hr {
   font-size: 1.7em;
 }
 
-/*====== Formularios ======*/
+/*---------formularios--------*/
 .form-label {
   display: inline-block;
   font-size: 1.6em;
@@ -478,7 +479,7 @@ textarea.form-input {
   padding: 15px;
 }
 
-/*====== Profile ======*/
+/*---------profile--------*/
 .info-usuario{
   border-bottom: 1px solid #ccc;
   padding-bottom: 30px;
@@ -487,9 +488,6 @@ textarea.form-input {
 
 .foto-perfil{
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
 }
 
 .main-title{
@@ -505,7 +503,7 @@ textarea.form-input {
 }
 
 
-/*====== Media-Queries ======*/
+/*---------media queris--------*/
 @media (min-width: 768px) {
   .main-header_credit-link {
     margin-top: 0;
@@ -555,4 +553,4 @@ textarea.form-input {
     width: 95%;
     margin: auto;
   }
-}
+};
