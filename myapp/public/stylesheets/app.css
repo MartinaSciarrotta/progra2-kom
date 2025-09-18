@@ -556,6 +556,9 @@ textarea.form-input {
 
 .foto-perfil{
   border-radius: 50%;
+  object-fit: cover;
+  width: 150px;
+  height: 150px;
 }
 
 .main-title{

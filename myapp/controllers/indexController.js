@@ -40,7 +40,17 @@ const indexController = {
 
 
   profile: function(req, res) {
-    res.render('profile');
+    const user = db.usuario;
+    const productosUsuario = [];
+
+    for (let i = 0; i < db.productos.length; i++) {
+      const p = db.productos[i];
+      if (p.usuario_id === user.id) {
+        productosUsuario.push(p);
+      }
+    }
+
+    res.render('profile', { proddd: productosUsuario, usuariooo: user });
   },
 
   logout: function(req,res){

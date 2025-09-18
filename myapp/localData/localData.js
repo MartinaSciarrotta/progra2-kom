@@ -14,7 +14,7 @@ const localData = {
       nombreProducto: "Audi S3",
       descripcion: "Compacto deportivo con tracción quattro.",
       usuario_id: 4,
-      usuario_nombre: "Juan"
+      usuario_nombre: "Carlos"
     },
     {
       id: 2,
@@ -46,7 +46,7 @@ const localData = {
       nombreProducto: "Audi RSQ3",
       descripcion: "SUV deportivo con un diseño impresionante.",
       usuario_id: 2,
-      usuario_nombre: "Juan"
+      usuario_nombre: "Carlos"
     },
     {
       id: 6,
@@ -62,7 +62,7 @@ const localData = {
       nombreProducto: "Audi RSQ8",
       descripcion: "SUV de lujo con alto rendimiento.",
       usuario_id: 5,
-      usuario_nombre: "Juan"
+      usuario_nombre: "Carlos"
     },
     {
       id: 8,
