@@ -4,7 +4,7 @@ const indexController = {
   index: function(req, res) {
     res.render('index', {
       proddd: db.productos ,
-      usuariooo: db.usuario
+      usuariooo: null
     });
   },
 
@@ -20,21 +20,20 @@ const indexController = {
       return res.render('login', { error: null });
     }
 
-    const user = db.usuario;
-
-  
-    if (user.email !== email) {
+    // Verificar si el email coincide con el usuario registrado
+    if (db.usuario.email !== email) {
       return res.render('login', { error: 'El usuario no está registrado' });
     }
 
-
-    if (user.contrasenia !== contrasenia) {
+    // Si el usuario existe pero la contraseña es incorrecta
+    if (db.usuario.contrasenia !== contrasenia) {
       return res.render('login', { error: 'La contraseña está incorrecta' });
     }
 
+    // Si todo está correcto, renderizar index con headerLogueado
     return res.render('index', {
       proddd: db.productos,
-      usuariooo: user
+      usuariooo: db.usuario
     });
   },
 
@@ -69,17 +68,23 @@ const indexController = {
 
 
   profile: function(req, res) {
-    const user = db.usuario; 
-    const productosUsuario = [];
+    const userId = req.params.id;
+    
+    // Verificar si el ID coincide con el usuario registrado
+    if (db.usuario.id != userId) {
+      return res.send('Usuario no encontrado');
+    }
 
+    // Buscar productos del usuario
+    const productosUsuario = [];
     for (let i = 0; i < db.productos.length; i++) {
       const p = db.productos[i];
-      if (p.usuario_id === user.id) {  
+      if (p.usuario_id === db.usuario.id) {  
         productosUsuario.push(p);
       }
     }
 
-    res.render('profile', { proddd: productosUsuario, usuariooo: user });
+    res.render('profile', { proddd: productosUsuario, usuariooo: db.usuario });
   },
 
   logout: function(req,res){
