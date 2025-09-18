@@ -1,22 +1,23 @@
 const db = require ('../localData/localData');
 
 const productController = {
-    productDetail: function(req, res) {
-        productos = localData.productos;
-        const idEncontrado = req.params.id;
-      
-        let idprod = req.params.id;
-
-        db.Producto.findByPk(idprod, {
-            include : [
-                {association : "comentarios", include: [{association: "usuario"}]},
-                {association : "usuario"}
-            ]
-        })
-        .then(function(producto){
-            return res.render("product", {producto : producto, user: req.session ? req.session.user : null})
-        })
+    productDetail: function (req, res) {
+        let id = req.params.id; 
+        let autoEncontrado = null;
+    
+        for (let i = 0; i < db.productos.length; i++) {
+          if (db.productos[i].id == id) {
+            autoEncontrado = db.productos[i];
+            break;
+          }
+        }
+    
+        return res.render("product", ("product", { 
+            product: autoEncontrado,
+            comments: db.comentarios
+        }));
     },
+
 
     productAdd: function(req, res) {
         res.render('product-add');

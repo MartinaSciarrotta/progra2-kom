@@ -7,83 +7,101 @@
 	<!-- Header -->
 	<%- include('partials/header') %>
 	<!-- /Header -->
-
-	<!-- product detail -->
-	<div class="container products-wrapper">
-		<div class="d-flex align-items-center">
-			<h2 class="products-title">Nombre del producto</h2> 
-			<p class="product-detail-description">
-				<a href="product-edit.html">Editar</a>
-			</p>
+<!-- product detail -->
+<div class="container products-wrapper">
+	<% if (!product) { %>
+	  <h2>No existe un auto con ese id.</h2>
+	<% } else { %>
+  
+	  <div class="d-flex align-items-center">
+		<h2 class="products-title"><%= product.nombreProducto %></h2>
+		<p class="product-detail-description" style="margin-left: 1rem;">
+		  <a href="/product/<%= product.id %>/edit">Editar</a>
+		</p>
+	  </div>
+  
+	  <div class="product-detail">
+		<div class="row">
+		  <article class="col-12 col-lg-8 product-detail-info">
+			<% if (product.imagenArchivo !== "") { %>
+			  <img src="/images/products/<%= product.imagenArchivo %>" alt="<%= product.nombreProducto %>" class="product-detail-img">
+			<% } else { %>
+			  <img src="/images/products/default-image.png" alt="<%= product.nombreProducto %>" class="product-detail-img">
+			<% } %>
+  
+			<p class="product-detail-description"><%= product.descripcion %></p>
+			<p class="product-detail-description">Publicado por: <%= product.usuario_nombre %></p>
+		  </article>
+  
+		  <div class="col-12 col-lg-4">
+			<section class="comments">
+			  <h3>Comentarios</h3>
+			  <% if (comments.length === 0) { %>
+				<p>No hay comentarios todavía.</p>
+			  <% } else { %>
+				<% for (let i = 0; i < comments.length; i++) { %>
+				  <article>
+					<% if (comments[i].foto !== "") { %>
+					  <img src="/images/users/<%= comments[i].foto %>" alt="Foto de <%= comments[i].nombreusuarioComento %>">
+					<% } else { %>
+					  <img src="/images/users/profile-default.png" alt="Foto por defecto">
+					<% } %>
+					<div class="data">
+					  <p class="user">
+						<strong><a href="/users/<%= comments[i].nombreusuarioComento %>">Nombre usuario:</a></strong>
+						<%= comments[i].comentario %>
+					  </p>
+					</div>
+				  </article>
+				<% } %>
+			  <% } %>
+			</section>
+  
+			<form class="form" action="/product/<%= product.id %>/comment" method="POST">
+			  <input class="form-input" type="text" name="comentario" placeholder="Agregar comentario">
+			  <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+			</form>
+			<hr>
+		  </div>
 		</div>
-		<div class="product-detail">
-			<div class="row">
-				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="./images/products/default-image.png" alt="" class="product-detail-img">
-					<p class="product-detail-description">
-						Descripción corta del producto. En la página principal solo se ven 2 líneas de estar descripción.Lorem ipsum dolor,
-						sit amet consectetur adipisicing elit. Tae ipsam amet eum, totam dolore libero illo unde? Consectetur dolorem neque
-						veritatis.</p>
-				</article>
-				<div class="col-12 col-lg-4">
-					<section class="comments">
-						<article>
-							<img src="./images/users/profile-default.png" alt="">
-							<div class="data">
-								<p class="user">
-								<strong> <a href="profile.html">Nombre usuario: </a> </strong>
-								 Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore magnam, praesentium explicabo inventore molestias facilis labore. Fugit ipsa mollitia odit inventore consequuntur.</p>
-							</div>
-						</article>
-						<article>
-							<img src="./images/users/profile-default.png" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="profile.html">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur.</p>
-							</div>
-						</article>
-						<article>
-							<img src="./images/users/profile-default.png" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="profile.html">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									</p>
-							</div>
-						</article>
-						<article>
-							<img src="./images/users/profile-default.png" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="profile.html">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet.</p>
-							</div>
-						</article>
-						<article>
-							<img src="./images/users/profile-default.png" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="profile.html">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore</p>
-							</div>
-						</article>
+	  </div>
+  
+	<% } %>
+  </div>
+  <!-- /product detail -->
+  
 
-					</section>
-					<form class="form" action="" method="POST">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-					</form>
-					<hr>
+	<!-- footer -->
+	<footer class="main-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-lg-4">
+					<article class="footer-data">
+						<i class="fas fa-credit-card"></i>
+						<h2>Pagá con tarjeta o en efectivo</h2>
+						<p>Con Mercado Liebre Cash, tenés cuotas sin interés con tarjeta o efectivo en puntos de pago. ¡Y
+							siempre es seguro!</p>
+					</article>
+				</div>
+				<div class="col-12 col-lg-4">
+					<article class="footer-data">
+						<i class="fas fa-gift"></i>
+						<h2>Envío gratis desde $ 49.999</h2>
+						<p>Solo por estar registrado en Mercado Liebre tenés envíos gratis en miles de productos. Es un
+							beneficio de Mercado Puntos.</p>
+					</article>
+				</div>
+				<div class="col-12 col-lg-4">
+					<article class="footer-data">
+						<i class="fas fa-user-shield"></i>
+						<h2>Seguridad, de principio a fin</h2>
+						<p>¿No te gusta? ¡Devolvelo! En Mercado Liebre, no hay nada que no puedas hacer, porque estás
+							siempre protegido.</p>
+					</article>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- /product detail -->
-
-	<!-- footer -->
-	<%- include('partials/footer') %>
+	</footer>
 	<!-- /footer -->
 
 </body>	
