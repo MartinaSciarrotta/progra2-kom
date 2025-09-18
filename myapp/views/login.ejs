@@ -19,17 +19,25 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
-				<form action="/" method="get">
+				<% if (error) { %>
+					<div class="error">
+						<p><%= error %></p>
+					</div>
+				<% } %>
+				
+				<form action="/login" method="post">
 					<label>Email: </label>
-					<input type="mail" name="email" required> 
+					<input type="email" name="email" required> 
 
 					<label>Contraseña: </label>
-					<input type="password" name="contrasennia" required>
+					<input type="password" name="contrasenia" required>
 
 					<div class="recordarme">
 						<input type="checkbox" name="recordarme" required>
 						<label for="recordarme">Recordarme</label>
 					</div>
+
+					<p>¿No tenés cuenta? <a href="/register">Registrate acá</a></p>
 					
 					<button type="submit">Ingresar</button>
 				</form>

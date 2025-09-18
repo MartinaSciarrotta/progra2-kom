@@ -3,7 +3,7 @@ const localData = {
     id: 1,
     nombre: "Carlos López",
     email: "carlos.lopez@gmail.com",
-    contrasenia: "qwerty789",
+    contrasenia: "carlitos",
     fotoPerfil: "carlos.jpg"
   },
   productos: [
