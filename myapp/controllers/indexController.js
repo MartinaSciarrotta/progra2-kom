@@ -40,12 +40,12 @@ const indexController = {
 
 
   profile: function(req, res) {
-    const user = db.usuario;
+    const user = db.usuario; // { id: 1, nombre: "Carlos López", ... }
     const productosUsuario = [];
 
     for (let i = 0; i < db.productos.length; i++) {
       const p = db.productos[i];
-      if (p.usuario_id === user.id) {
+      if (p.usuario_id === user.id) {   // 👈 solo los productos publicados por ese usuario
         productosUsuario.push(p);
       }
     }

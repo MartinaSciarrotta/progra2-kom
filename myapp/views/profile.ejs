@@ -31,34 +31,35 @@
 
     <!-- Mis productos -->
     <div class="container products-wrapper">
-      <div class="row">
-        <div class="col-12">
-          <h2 class="products-title">Mis productos</h2>
-        </div>
-
-        <% if (proddd && proddd.length > 0) { %>
-          <% for (var i = 0; i < proddd.length; i++) { 
-               var p = proddd[i]; %>
-            <div class="col-12 col-sm-6 col-lg-3">
-              <section class="product-box">
-                <a href="/product/detalle/<%= p.id %>">
-                  <figure class="product-box_image">
-                    <img src="/images/products/<%= p.imagenArchivo %>" alt="<%= p.nombreProducto %>">
-                  </figure>
-                  <article class="product-box_data">
-                    <h2><%= p.nombreProducto %></h2>
-                    <p><%= p.descripcion %></p>
-                     <p>Comentarios: 12</p>
-                  </article>
-                </a>
-              </section>
-            </div>
-          <% } %>
-        <% } else { %>
-          <p class="col-12">Este usuario todavía no publicó productos.</p>
-        <% } %>
-      </div>
-    </div>
+		<div class="row">
+		  <div class="col-12">
+			<h2 class="products-title">Mis productos</h2>
+		  </div>
+	  
+		  <% if (proddd && proddd.length > 0) { %>
+			<% for (var i = 0; i < proddd.length; i++) { 
+				 var p = proddd[i]; %>
+			  <div class="col-12 col-sm-6 col-lg-3">
+				<section class="product-box">
+				  <a href="/product/detalle/<%= p.id %>">
+					<figure class="product-box_image">
+					  <img src="/images/products/<%= p.imagenArchivo %>" alt="<%= p.nombreProducto %>">
+					</figure>
+					<article class="product-box_data">
+					  <h2><%= p.nombreProducto %></h2>
+					  <p><%= p.descripcion %></p>
+					  <p>Publicado por: <%= p.usuario_nombre %></p>
+					</article>
+				  </a>
+				</section>
+			  </div>
+			<% } %>
+		  <% } else { %>
+			<p class="col-12">Este usuario todavía no publicó productos.</p>
+		  <% } %>
+		</div>
+	  </div>	  
+	  
     <!-- /Mis productos -->
 
     <!-- footer -->

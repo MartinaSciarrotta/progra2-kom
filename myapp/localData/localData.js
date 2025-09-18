@@ -13,7 +13,7 @@ const localData = {
       imagenArchivo: "s3.png",
       nombreProducto: "Audi S3",
       descripcion: "Compacto deportivo con tracción quattro.",
-      usuario_id: 4,
+      usuario_id: 1,
       usuario_nombre: "Carlos"
     },
     {
@@ -38,14 +38,14 @@ const localData = {
       nombreProducto: "Audi A6 Allroad",
       descripcion: "Versión off-road del A6.",
       usuario_id: 4,
-      usuario_nombre: "Brian"
+      usuario_nombre: "Juan"
     },
     {
       id: 5,
       imagenArchivo: "rsq3.jpg",
       nombreProducto: "Audi RSQ3",
       descripcion: "SUV deportivo con un diseño impresionante.",
-      usuario_id: 2,
+      usuario_id: 1,
       usuario_nombre: "Carlos"
     },
     {
@@ -54,14 +54,14 @@ const localData = {
       nombreProducto: "Audi Q7",
       descripcion: "SUV grande y de lujo con capacidad para siete personas.",
       usuario_id: 1,
-      usuario_nombre: "Maria"
+      usuario_nombre: "Carlos"
     },
     {
       id: 7,
       imagenArchivo: "rsq8.png",
       nombreProducto: "Audi RSQ8",
       descripcion: "SUV de lujo con alto rendimiento.",
-      usuario_id: 5,
+      usuario_id: 1,
       usuario_nombre: "Carlos"
     },
     {
@@ -77,7 +77,7 @@ const localData = {
       imagenArchivo: "sq5.png",
       nombreProducto: "Audi SQ5",
       descripcion: "SUV deportivo con motor potente.",
-      usuario_id: 4,
+      usuario_id: 5,
       usuario_nombre: "Maria"
     },
     {
@@ -86,7 +86,7 @@ const localData = {
       nombreProducto: "Audi R8",
       descripcion: "Superdeportivo icónico con diseño agresivo.",
       usuario_id: 1,
-      usuario_nombre: "Brian"
+      usuario_nombre: "Carlos"
     },
 
     // BMW
@@ -96,7 +96,7 @@ const localData = {
       nombreProducto: "BMW M3",
       descripcion: "Sedán deportivo con gran potencia y estilo.",
       usuario_id: 1,
-      usuario_nombre: "Brian"
+      usuario_nombre: "Carlos"
     },
     {
       id: 12,
@@ -111,7 +111,7 @@ const localData = {
       imagenArchivo: "140.png",
       nombreProducto: "BMW 140",
       descripcion: "Hatchback compacto con gran desempeño.",
-      usuario_id: 2,
+      usuario_id: 3,
       usuario_nombre: "Pedro"
     },
     {
@@ -127,7 +127,7 @@ const localData = {
       imagenArchivo: "m5.png",
       nombreProducto: "BMW M5",
       descripcion: "Sedán de lujo con espíritu deportivo.",
-      usuario_id: 3,
+      usuario_id: 2,
       usuario_nombre: "Brian"
     },
     {
@@ -151,7 +151,7 @@ const localData = {
       imagenArchivo: "x3.png",
       nombreProducto: "BMW X3",
       descripcion: "SUV intermedio con grandes características.",
-      usuario_id: 4,
+      usuario_id: 3,
       usuario_nombre: "Pedro"
     },
     {
@@ -160,7 +160,7 @@ const localData = {
       nombreProducto: "BMW X5",
       descripcion: "SUV premium con espacio y confort.",
       usuario_id: 1,
-      usuario_nombre: "Juan"
+      usuario_nombre: "Carlos"
     },
     {
       id: 20,
@@ -177,7 +177,7 @@ const localData = {
       imagenArchivo: "A45s.png",
       nombreProducto: "Mercedes Benz A45s",
       descripcion: "Hatchback AMG con alto rendimiento.",
-      usuario_id: 5,
+      usuario_id: 2,
       usuario_nombre: "Brian"
     },
     {
@@ -210,7 +210,7 @@ const localData = {
       nombreProducto: "Mercedes Benz S500",
       descripcion: "Sedán de lujo con gran comodidad.",
       usuario_id: 1,
-      usuario_nombre: "Brian"
+      usuario_nombre: "Carlos"
     },
     {
       id: 26,
@@ -225,7 +225,7 @@ const localData = {
       imagenArchivo: "g500.png",
       nombreProducto: "Mercedes Benz G500",
       descripcion: "SUV clásico con lujo y fuerza.",
-      usuario_id: 5,
+      usuario_id: 4,
       usuario_nombre: "Juan"
     },
     {
@@ -241,8 +241,8 @@ const localData = {
       imagenArchivo: "glc43.png",
       nombreProducto: "Mercedes Benz GLC43",
       descripcion: "SUV compacto con motor potente.",
-      usuario_id: 2,
-      usuario_nombre: "Maria"
+      usuario_id: 1,
+      usuario_nombre: "Carlos"
     },
     {
       id: 30,
@@ -250,7 +250,7 @@ const localData = {
       nombreProducto: "Mercedes Benz GLA250",
       descripcion: "SUV compacto con tecnología avanzada.",
       usuario_id: 1,
-      usuario_nombre: "Maria"
+      usuario_nombre: "Carlos"
     }
   ],
   comentarios: [
