@@ -5,7 +5,15 @@
 
 <body>
 	<!-- Header -->
-	<%- include('partials/header') %>
+	<% if (usuariooo) { %>
+		<% if (usuariooo.nombre) { %>
+			<%- include('./partials/headerLogueado') %>
+		<% } else { %>
+			<%- include('./partials/header') %>
+		<% } %>
+	<% } else { %>
+		<%- include('./partials/header') %>
+	<% } %>
 	<!-- /Header -->
 	
 	<!-- Banner -->

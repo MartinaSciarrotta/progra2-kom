@@ -2,32 +2,37 @@ var db = require('../localData/localData');
 
 const indexController = {
   index: function(req, res) {
-    res.render('index', { proddd: db.productos , usuariooo: db.usuario, commm: db.comentarios});
+    res.render('index', {
+      proddd: db.productos ,
+      usuariooo: db.usuario,
+      commm: db.comentarios
+    });
   },
 
   login: function(req, res) {
-    // Mostrar formulario de login (GET)
-    res.render('login', { error: null });
-  },
+    const email = req.query.email;
+    const contrasenia = req.query.contrasenia;
 
-  loginPost: function(req, res) {
-    const email = req.body.email;
-    const contrasenia = req.body.contrasenia;
+  
+    if (!email) {
+      return res.render('login', { error: null });
+    }
+    if (!contrasenia) {
+      return res.render('login', { error: null });
+    }
 
-    // Verificar si el usuario existe en el módulo de datos
     const user = db.usuario;
 
-    // 1) Verificar si el email coincide con el usuario registrado
+  
     if (user.email !== email) {
       return res.render('login', { error: 'El usuario no está registrado' });
     }
 
-    // 2) Si el usuario existe pero la contraseña es incorrecta
+
     if (user.contrasenia !== contrasenia) {
       return res.render('login', { error: 'La contraseña está incorrecta' });
     }
 
-    // 3) Si todo coincide → renderizar página principal
     return res.render('index', {
       proddd: db.productos,
       usuariooo: user,
@@ -66,12 +71,12 @@ const indexController = {
 
 
   profile: function(req, res) {
-    const user = db.usuario; // { id: 1, nombre: "Carlos López", ... }
+    const user = db.usuario; 
     const productosUsuario = [];
 
     for (let i = 0; i < db.productos.length; i++) {
       const p = db.productos[i];
-      if (p.usuario_id === user.id) {   // 👈 solo los productos publicados por ese usuario
+      if (p.usuario_id === user.id) {  
         productosUsuario.push(p);
       }
     }
@@ -80,7 +85,11 @@ const indexController = {
   },
 
   logout: function(req,res){
-    res.render("index", { proddd: db.productos });
+    res.render("index", { 
+      proddd: db.productos, 
+      usuariooo: null,
+      commm: db.comentarios
+    });
   }
 };
 

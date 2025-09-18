@@ -37,13 +37,15 @@
 				</ul>
 				<ul class="right-navbar">
 					<li>
-						<a href="/register">Creá tu cuenta <i class="far fa-address-card"></i>
-						</a>
+						<a href="/profile">Hola <%= usuariooo.nombre %> <i class="fas fa-user"></i></a>
 					</li>
 					<li>
-						<a href="/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
+						<form action="/logout" method="post">
+							<button class="logout" type="submit">
+								Cerrar sesión <i class="fas fa-sign-out-alt"></i>
+							</button>
+						</form>
 					</li>
-					
 				</ul>
 			</nav>
 		</div>
