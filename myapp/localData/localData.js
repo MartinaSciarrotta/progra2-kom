@@ -256,8 +256,8 @@ const localData = {
   comentarios: [
     {
       comentario: "hola",
-      foto: "",
-      nombreusuarioComento: "Luis"
+      fotoPerfil: "luis.png",
+      usuario_nombre: "Luis"
     }
   ]
 };
