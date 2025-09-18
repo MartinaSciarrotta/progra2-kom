@@ -14,7 +14,14 @@ const localData = {
       nombreProducto: "Audi S3",
       descripcion: "Compacto deportivo con tracción quattro.",
       usuario_id: 1,
-      usuario_nombre: "Carlos"
+      usuario_nombre: "Carlos",
+      comentarios: [
+        {
+          nombreUsuario: "Brian",
+          textoComentario: "Excelente auto, muy potente y con gran manejo.",
+          imagenPerfil: "brian.png"
+        },
+      ]
     },
     {
       id: 2,
@@ -22,7 +29,14 @@ const localData = {
       nombreProducto: "Audi RS3",
       descripcion: "Versión extrema del A3, muy rápida.",
       usuario_id: 2,
-      usuario_nombre: "Brian"
+      usuario_nombre: "Brian",
+      comentarios: [
+        {
+          nombreUsuario: "Carlos",
+          textoComentario: "Increíble velocidad, lo recomiendo totalmente.",
+          imagenPerfil: "carlos.jpg"
+        },
+      ]
     },
     {
       id: 3,
@@ -30,7 +44,14 @@ const localData = {
       nombreProducto: "Audi S5",
       descripcion: "Coupé deportivo con estilo.",
       usuario_id: 3,
-      usuario_nombre: "Pedro"
+      usuario_nombre: "Pedro",
+      comentarios: [
+        {
+          nombreUsuario: "Brian",
+          textoComentario: "Hermoso diseño, muy elegante.",
+          imagenPerfil: "brian.png"
+        }
+      ]
     },
     {
       id: 4,
@@ -38,7 +59,14 @@ const localData = {
       nombreProducto: "Audi A6 Allroad",
       descripcion: "Versión off-road del A6.",
       usuario_id: 4,
-      usuario_nombre: "Juan"
+      usuario_nombre: "Juan",
+      comentarios: [
+        {
+          nombreUsuario: "Carlos",
+          textoComentario: "Perfecto para aventuras, muy resistente.",
+          imagenPerfil: "carlos.jpg"
+        }
+      ]
     },
     {
       id: 5,
@@ -46,7 +74,14 @@ const localData = {
       nombreProducto: "Audi RSQ3",
       descripcion: "SUV deportivo con un diseño impresionante.",
       usuario_id: 1,
-      usuario_nombre: "Carlos"
+      usuario_nombre: "Carlos",
+      comentarios: [
+        {
+          nombreUsuario: "Pedro",
+          textoComentario: "SUV impresionante, muy futurista.",
+          imagenPerfil: "pedro.png"
+        },
+      ]
     },
     {
       id: 6,
@@ -54,7 +89,14 @@ const localData = {
       nombreProducto: "Audi Q7",
       descripcion: "SUV grande y de lujo con capacidad para siete personas.",
       usuario_id: 1,
-      usuario_nombre: "Carlos"
+      usuario_nombre: "Carlos",
+      comentarios: [
+        {
+          nombreUsuario: "Brian",
+          textoComentario: "Espacioso y cómodo, ideal para familias grandes.",
+          imagenPerfil: "brian.png"
+        }
+      ]
     },
     {
       id: 7,
@@ -62,7 +104,14 @@ const localData = {
       nombreProducto: "Audi RSQ8",
       descripcion: "SUV de lujo con alto rendimiento.",
       usuario_id: 1,
-      usuario_nombre: "Carlos"
+      usuario_nombre: "Carlos",
+      comentarios: [
+        {
+          nombreUsuario: "Pedro",
+          textoComentario: "SUV de alto rendimiento, muy impresionante.",
+          imagenPerfil: "pedro.png"
+        }
+      ]
     },
     {
       id: 8,
@@ -70,7 +119,14 @@ const localData = {
       nombreProducto: "Audi Q8",
       descripcion: "SUV premium con diseño moderno.",
       usuario_id: 3,
-      usuario_nombre: "Pedro"
+      usuario_nombre: "Pedro",
+      comentarios: [
+        {
+          nombreUsuario: "Juan",
+          textoComentario: "Diseño moderno y muy elegante.",
+          imagenPerfil: "juan.png"
+        }
+      ]
     },
     {
       id: 9,
@@ -78,7 +134,14 @@ const localData = {
       nombreProducto: "Audi SQ5",
       descripcion: "SUV deportivo con motor potente.",
       usuario_id: 5,
-      usuario_nombre: "Maria"
+      usuario_nombre: "Maria",
+      comentarios: [
+        {
+          nombreUsuario: "Carlos",
+          textoComentario: "Motor potente, muy deportivo.",
+          imagenPerfil: "carlos.jpg"
+        }
+      ]
     },
     {
       id: 10,
@@ -86,7 +149,14 @@ const localData = {
       nombreProducto: "Audi R8",
       descripcion: "Superdeportivo icónico con diseño agresivo.",
       usuario_id: 1,
-      usuario_nombre: "Carlos"
+      usuario_nombre: "Carlos",
+      comentarios: [
+        {
+          nombreUsuario: "Maria",
+          textoComentario: "El sueño de cualquier amante de los autos.",
+          imagenPerfil: "maria.png"
+        }
+      ]
     },
 
     // BMW
@@ -96,7 +166,14 @@ const localData = {
       nombreProducto: "BMW M3",
       descripcion: "Sedán deportivo con gran potencia y estilo.",
       usuario_id: 1,
-      usuario_nombre: "Carlos"
+      usuario_nombre: "Carlos",
+      comentarios: [
+        {
+          nombreUsuario: "Brian",
+          textoComentario: "Clásico BMW, potencia y elegancia.",
+          imagenPerfil: "brian.png"
+        }
+      ]
     },
     {
       id: 12,
@@ -104,7 +181,14 @@ const localData = {
       nombreProducto: "BMW M2",
       descripcion: "Coupé compacto ágil y veloz.",
       usuario_id: 3,
-      usuario_nombre: "Pedro"
+      usuario_nombre: "Pedro",
+      comentarios: [
+        {
+          nombreUsuario: "Juan",
+          textoComentario: "Compacto pero muy potente, me encanta.",
+          imagenPerfil: "juan.png"
+        }
+      ]
     },
     {
       id: 13,
@@ -112,7 +196,14 @@ const localData = {
       nombreProducto: "BMW 140",
       descripcion: "Hatchback compacto con gran desempeño.",
       usuario_id: 3,
-      usuario_nombre: "Pedro"
+      usuario_nombre: "Pedro",
+      comentarios: [
+        {
+          nombreUsuario: "Carlos",
+          textoComentario: "Hatchback con gran desempeño, muy práctico.",
+          imagenPerfil: "carlos.jpg"
+        }
+      ]
     },
     {
       id: 14,
@@ -120,7 +211,14 @@ const localData = {
       nombreProducto: "BMW 240",
       descripcion: "Coupé compacto con diseño deportivo.",
       usuario_id: 5,
-      usuario_nombre: "Maria"
+      usuario_nombre: "Maria",
+      comentarios: [
+        {
+          nombreUsuario: "Pedro",
+          textoComentario: "Diseño deportivo muy atractivo.",
+          imagenPerfil: "pedro.png"
+        }
+      ]
     },
     {
       id: 15,
@@ -128,7 +226,14 @@ const localData = {
       nombreProducto: "BMW M5",
       descripcion: "Sedán de lujo con espíritu deportivo.",
       usuario_id: 2,
-      usuario_nombre: "Brian"
+      usuario_nombre: "Brian",
+      comentarios: [
+        {
+          nombreUsuario: "Maria",
+          textoComentario: "Lujo y deportividad en perfecta armonía.",
+          imagenPerfil: "maria.png"
+        }
+      ]
     },
     {
       id: 16,
@@ -136,7 +241,14 @@ const localData = {
       nombreProducto: "BMW X1",
       descripcion: "SUV compacto de lujo.",
       usuario_id: 2,
-      usuario_nombre: "Brian"
+      usuario_nombre: "Brian",
+      comentarios: [
+        {
+          nombreUsuario: "Juan",
+          textoComentario: "SUV compacto perfecto para la ciudad.",
+          imagenPerfil: "juan.png"
+        }
+      ]
     },
     {
       id: 17,
@@ -144,7 +256,14 @@ const localData = {
       nombreProducto: "BMW X2",
       descripcion: "SUV deportivo con diseño moderno.",
       usuario_id: 3,
-      usuario_nombre: "Pedro"
+      usuario_nombre: "Pedro",
+      comentarios: [
+        {
+          nombreUsuario: "Brian",
+          textoComentario: "Moderno y deportivo, me gusta mucho.",
+          imagenPerfil: "brian.png"
+        }
+      ]
     },
     {
       id: 18,
@@ -152,7 +271,14 @@ const localData = {
       nombreProducto: "BMW X3",
       descripcion: "SUV intermedio con grandes características.",
       usuario_id: 3,
-      usuario_nombre: "Pedro"
+      usuario_nombre: "Pedro",
+      comentarios: [
+        {
+          nombreUsuario: "Carlos",
+          textoComentario: "Tamaño perfecto, muy completo.",
+          imagenPerfil: "carlos.jpg"
+        }
+      ]
     },
     {
       id: 19,
@@ -160,7 +286,14 @@ const localData = {
       nombreProducto: "BMW X5",
       descripcion: "SUV premium con espacio y confort.",
       usuario_id: 1,
-      usuario_nombre: "Carlos"
+      usuario_nombre: "Carlos",
+      comentarios: [
+        {
+          nombreUsuario: "Pedro",
+          textoComentario: "Espacioso y cómodo, ideal para viajes largos.",
+          imagenPerfil: "pedro.png"
+        }
+      ]
     },
     {
       id: 20,
@@ -168,7 +301,14 @@ const localData = {
       nombreProducto: "BMW X7",
       descripcion: "SUV de lujo con 7 plazas.",
       usuario_id: 5,
-      usuario_nombre: "Maria"
+      usuario_nombre: "Maria",
+      comentarios: [
+        {
+          nombreUsuario: "Juan",
+          textoComentario: "Perfecto para familias grandes, muy lujoso.",
+          imagenPerfil: "juan.png"
+        }
+      ]
     },
 
     // Mercedes Benz
@@ -178,7 +318,14 @@ const localData = {
       nombreProducto: "Mercedes Benz A45s",
       descripcion: "Hatchback AMG con alto rendimiento.",
       usuario_id: 2,
-      usuario_nombre: "Brian"
+      usuario_nombre: "Brian",
+      comentarios: [
+        {
+          nombreUsuario: "Carlos",
+          textoComentario: "AMG siempre sinónimo de potencia.",
+          imagenPerfil: "carlos.jpg"
+        }
+      ]
     },
     {
       id: 22,
@@ -186,7 +333,14 @@ const localData = {
       nombreProducto: "Mercedes Benz C63s",
       descripcion: "Sedán AMG con motor potente.",
       usuario_id: 4,
-      usuario_nombre: "Juan"
+      usuario_nombre: "Juan",
+      comentarios: [
+        {
+          nombreUsuario: "Maria",
+          textoComentario: "El sonido del V8 es increíble.",
+          imagenPerfil: "maria.png"
+        }
+      ]
     },
     {
       id: 23,
@@ -194,7 +348,14 @@ const localData = {
       nombreProducto: "Mercedes Benz E450",
       descripcion: "Sedán elegante con tecnología avanzada.",
       usuario_id: 3,
-      usuario_nombre: "Pedro"
+      usuario_nombre: "Pedro",
+      comentarios: [
+        {
+          nombreUsuario: "Brian",
+          textoComentario: "Elegancia y tecnología en su máxima expresión.",
+          imagenPerfil: "brian.png"
+        }
+      ]
     },
     {
       id: 24,
@@ -202,7 +363,14 @@ const localData = {
       nombreProducto: "Mercedes Benz SLC43",
       descripcion: "Coupé convertible de lujo.",
       usuario_id: 2,
-      usuario_nombre: "Brian"
+      usuario_nombre: "Brian",
+      comentarios: [
+        {
+          nombreUsuario: "Pedro",
+          textoComentario: "Convertible perfecto para el verano.",
+          imagenPerfil: "pedro.png"
+        }
+      ]
     },
     {
       id: 25,
@@ -210,7 +378,14 @@ const localData = {
       nombreProducto: "Mercedes Benz S500",
       descripcion: "Sedán de lujo con gran comodidad.",
       usuario_id: 1,
-      usuario_nombre: "Carlos"
+      usuario_nombre: "Carlos",
+      comentarios: [
+        {
+          nombreUsuario: "Juan",
+          textoComentario: "La definición de lujo en un sedán.",
+          imagenPerfil: "juan.png"
+        }
+      ]
     },
     {
       id: 26,
@@ -218,7 +393,14 @@ const localData = {
       nombreProducto: "Mercedes Benz CLE53",
       descripcion: "Coupé deportivo de gran desempeño.",
       usuario_id: 4,
-      usuario_nombre: "Juan"
+      usuario_nombre: "Juan",
+      comentarios: [
+        {
+          nombreUsuario: "Carlos",
+          textoComentario: "Coupé con gran desempeño y estilo.",
+          imagenPerfil: "carlos.jpg"
+        }
+      ]
     },
     {
       id: 27,
@@ -226,7 +408,14 @@ const localData = {
       nombreProducto: "Mercedes Benz G500",
       descripcion: "SUV clásico con lujo y fuerza.",
       usuario_id: 4,
-      usuario_nombre: "Juan"
+      usuario_nombre: "Juan",
+      comentarios: [
+        {
+          nombreUsuario: "Brian",
+          textoComentario: "Icónico G-Wagon, lujo y resistencia.",
+          imagenPerfil: "brian.png"
+        }
+      ]
     },
     {
       id: 28,
@@ -234,7 +423,14 @@ const localData = {
       nombreProducto: "Mercedes Benz GLE63",
       descripcion: "SUV de gran rendimiento y lujo.",
       usuario_id: 3,
-      usuario_nombre: "Pedro"
+      usuario_nombre: "Pedro",
+      comentarios: [
+        {
+          nombreUsuario: "Maria",
+          textoComentario: "SUV potente y lujoso, lo mejor de ambos mundos.",
+          imagenPerfil: "maria.png"
+        }
+      ]
     },
     {
       id: 29,
@@ -242,7 +438,14 @@ const localData = {
       nombreProducto: "Mercedes Benz GLC43",
       descripcion: "SUV compacto con motor potente.",
       usuario_id: 1,
-      usuario_nombre: "Carlos"
+      usuario_nombre: "Carlos",
+      comentarios: [
+        {
+          nombreUsuario: "Pedro",
+          textoComentario: "Compacto pero muy potente, ideal para la ciudad.",
+          imagenPerfil: "pedro.png"
+        }
+      ]
     },
     {
       id: 30,
@@ -250,16 +453,16 @@ const localData = {
       nombreProducto: "Mercedes Benz GLA250",
       descripcion: "SUV compacto con tecnología avanzada.",
       usuario_id: 1,
-      usuario_nombre: "Carlos"
+      usuario_nombre: "Carlos",
+      comentarios: [
+        {
+          nombreUsuario: "Juan",
+          textoComentario: "Tecnología avanzada en un SUV compacto.",
+          imagenPerfil: "juan.png"
+        }
+      ]
     }
   ],
-  comentarios: [
-    {
-      comentario: "hola",
-      fotoPerfil: "luis.png",
-      usuario_nombre: "Luis"
-    }
-  ]
 };
 
 module.exports = localData;

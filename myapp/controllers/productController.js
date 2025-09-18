@@ -12,10 +12,9 @@ const productController = {
           }
         }
     
-        return res.render("product", ("product", { 
-            product: autoEncontrado,
-            comments: db.comentarios
-        }));
+        return res.render("product", { 
+            product: autoEncontrado
+        });
     },
 
 

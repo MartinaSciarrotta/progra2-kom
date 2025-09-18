@@ -36,28 +36,28 @@
 		  <div class="col-12 col-lg-4">
 			<section class="comments">
 			  <h3>Comentarios</h3>
-			  <% if (comments.length === 0) { %>
+			  <% if (product.comentarios.length === 0) { %>
 				<p>No hay comentarios todavía.</p>
 			  <% } else { %>
-				<% for (let i = 0; i < comments.length; i++) { %>
+				<% for (let i = 0; i < product.comentarios.length; i++) { %>
 				  <article>
-					<% if (comments[i].foto !== "") { %>
-					  <img src="/images/users/<%= comments[i].foto %>" alt="Foto de <%= comments[i].nombreusuarioComento %>">
+					<% if (product.comentarios[i].imagenPerfil !== "") { %>
+					  <img src="/images/users/<%= product.comentarios[i].imagenPerfil %>" alt="Foto de <%= product.comentarios[i].nombreUsuario %>">
 					<% } else { %>
 					  <img src="/images/users/profile-default.png" alt="Foto por defecto">
 					<% } %>
 					<div class="data">
 					  <p class="user">
-						<strong><a href="/users/<%= comments[i].nombreusuarioComento %>">Nombre usuario:</a></strong>
-						<%= comments[i].comentario %>
+						<strong><%= product.comentarios[i].nombreUsuario %></strong>
 					  </p>
+					  <p><%= product.comentarios[i].textoComentario %></p>
 					</div>
 				  </article>
 				<% } %>
 			  <% } %>
 			</section>
   
-			<form class="form" action="/product/<%= product.id %>/comment" method="POST">
+			<form class="form" action="/product/<%= product.id %>/comment" method="get">
 			  <input class="form-input" type="text" name="comentario" placeholder="Agregar comentario">
 			  <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 			</form>

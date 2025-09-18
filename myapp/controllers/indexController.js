@@ -4,8 +4,7 @@ const indexController = {
   index: function(req, res) {
     res.render('index', {
       proddd: db.productos ,
-      usuariooo: db.usuario,
-      commm: db.comentarios
+      usuariooo: db.usuario
     });
   },
 
@@ -35,8 +34,7 @@ const indexController = {
 
     return res.render('index', {
       proddd: db.productos,
-      usuariooo: user,
-      commm: db.comentarios
+      usuariooo: user
     });
   },
 
@@ -87,8 +85,7 @@ const indexController = {
   logout: function(req,res){
     res.render("index", { 
       proddd: db.productos, 
-      usuariooo: null,
-      commm: db.comentarios
+      usuariooo: null
     });
   }
 };
