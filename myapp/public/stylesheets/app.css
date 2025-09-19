@@ -548,6 +548,27 @@ textarea.form-input {
   font-size: 18px;
 }
 
+
+.search-form_button {
+  width: 40px;                /* mismo tamaño que Mercado Libre */
+  height: 40px;
+  background: none;            /* sin fondo */
+  border: none;
+  padding: 0;
+  margin-left: -1px;           /* para que se una con el input */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-form_button img {
+  width: 18px;                 /* tamaño de la lupa */
+  height: 18px;
+  object-fit: contain;
+}
+
+
 /*---------profile--------*/
 .info-usuario{
   border-bottom: 1px solid #ccc;
@@ -626,3 +647,5 @@ textarea.form-input {
     margin: auto;
   }
 };
+
+
