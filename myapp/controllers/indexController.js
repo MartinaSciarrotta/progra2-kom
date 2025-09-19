@@ -43,28 +43,57 @@ const indexController = {
 
   
   searchResults: function (req, res) {
-               
-    db.Producto.findAll({
-        where: [
-            {nombre: { [op.like]: `%${req.query.search}%`} }
-        ],
-        include : [
-            {association : "comentarios"},
-            {association : "usuario"}
-        ]
-    })
-    .then(function(productosEncontrados) {
-        if (productosEncontrados.length > 0) {
-            return res.render('searchResults', {proddd: productosEncontrados, mensaje: null})
+    var palabraBuscada = "";
+    if (req.query.search) {
+      palabraBuscada = req.query.search.toLowerCase();
+    }
+  
+    var productosEncontrados = [];
+    var listaProductos = db.productos;
+  
+    for (var i = 0; i < listaProductos.length; i++) {
+      var producto = listaProductos[i];
+  
+      var nombre = "";
+      var descripcion = "";
+      var usuario = "";
+  
+      if (producto.nombreProducto) {
+        nombre = producto.nombreProducto.toLowerCase();
+      }
+      if (producto.nombre) {
+        nombre = producto.nombre.toLowerCase();
+      }
+      if (producto.descripcion) {
+        descripcion = producto.descripcion.toLowerCase();
+      }
+      if (producto.usuario_nombre) {
+        usuario = producto.usuario_nombre.toLowerCase();
+      }
+      if (producto.usuario && producto.usuario.nombre) {
+        usuario = producto.usuario.nombre.toLowerCase();
+      }
+  
+      if (palabraBuscada && nombre.includes(palabraBuscada)) {
+        productosEncontrados.push(producto);
+      } 
+      else {
+        if (palabraBuscada && descripcion.includes(palabraBuscada)) {
+          productosEncontrados.push(producto);
         } else {
-            return res.render('searchResults', {proddd: [], mensaje: "No hay resultados para su criterio de búsqueda"})
+          if (palabraBuscada && usuario.includes(palabraBuscada)) {
+            productosEncontrados.push(producto);
+          }
         }
-    })
-    .catch(function(error) {
-        console.log(error)
-        return res.send('Ocurrió un error al buscar el producto.');
-    })
-},
+      }
+    }
+  
+    if (productosEncontrados.length > 0) {
+      return res.render('searchResults', { proddd: productosEncontrados, mensaje: null });
+    } else {
+      return res.render('searchResults', { proddd: [], mensaje: 'No hay resultados para su criterio de búsqueda' });
+    }
+  },
 
 
   profile: function(req, res) {
