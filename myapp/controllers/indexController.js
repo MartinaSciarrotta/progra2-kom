@@ -4,15 +4,12 @@ const indexController = {
   index: function (req, res) {
     res.render('index', {
       proddd: db.productos,
-      usuariooo: null
+      usuariooo: true
     });
   },
 
   login: function (req, res) {
-    return res.render('index', {
-      proddd: db.productos,
-      usuariooo: mail
-    });
+    res.render('login');
   },
 
   register: function(req, res) {
@@ -25,18 +22,23 @@ const indexController = {
   },
 
   profile: function(req, res) {
-    const userId = req.params.id;
+    const carlos = {
+      id: 1,
+      nombre: "Carlos López",
+      email: "carlos.lopez@gmail.com",
+      fotoPerfil: "carlos.jpg"
+    };
 
     // Buscar productos del usuario
-    const productosUsuario = [];
+    const productosCarlos = [];
     for (let i = 0; i < db.productos.length; i++) {
       const p = db.productos[i];
       if (p.usuario_id === db.usuario.id) {  
-        productosUsuario.push(p);
+        productosCarlos.push(p);
       }
     }
 
-    res.render('profile', { proddd: productosUsuario, usuariooo: db.usuario });
+    res.render('profile', { proddd: productosCarlos, usuariooo: carlos });
   },
 
   logout: function(req,res){
