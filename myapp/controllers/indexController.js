@@ -18,7 +18,10 @@ const indexController = {
 
   
   searchResults: function (req, res) {
-    res.render('searchResults');
+    res.render('searchResults', {
+      proddd: db.productos,
+      usuariooo: true
+    });
   },
 
   profile: function(req, res) {

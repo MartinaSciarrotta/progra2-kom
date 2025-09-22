@@ -11,6 +11,30 @@
       <div class="col-12">
         <h2 class="products-title">Resultados de búsqueda</h2>
       </div>
+      	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+			</div>
+			<!-- Show the "ultimos" products -->
+			<% for (let i = 0; i < proddd.length; i++) { %> 
+				<div id="seeyuh" class="col-12 col-sm-6 col-lg-3"> 
+					<section class="product-box"> 
+						<a href='/product/detalle/<%= proddd[i].id %>'> 
+							<figure class="product-box_image"> 
+								<img src="/images/products/<%= proddd[i].imagenArchivo %>" alt=""> 
+							</figure> 
+							<article class="product-box_data"> 
+								<h2><%= proddd[i].nombreProducto %></h2> 
+								<p><%= proddd[i].descripcion %></p> 
+								<p> <strong> Vendedor/a: </strong> <%= proddd[i].usuario_nombre %></p>
+								<p> <strong> Comentarios: </strong> <%= proddd[i].comentarios.length %></p> 
+							</article>
+						</a> 
+					</section> 
+				</div> 
+			<% } %> 
+		</div>
+	</div>
     </div>
   </div>
 

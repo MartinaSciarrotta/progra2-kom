@@ -5,7 +5,7 @@
 
 <body>
 	<!-- Header -->
-	<%- include('partials/header') %>
+	<%- include('partials/headerLogueado') %>
 	<!-- /Header -->
 <!-- product detail -->
 <div class="container products-wrapper">
@@ -48,7 +48,7 @@
 					<% } %>
 					<div class="data">
 					  <p class="user">
-						<strong><%= product.comentarios[i].nombreUsuario %></strong>
+						<strong><a href="/profile/1" target="_blank"><%= product.comentarios[i].nombreUsuario %></a></strong>
 					  </p>
 					  <p><%= product.comentarios[i].textoComentario %></p>
 					</div>
@@ -57,7 +57,7 @@
 			  <% } %>
 			</section>
   
-			<form class="form" action="/product/<%= product.id %>/comment" method="get">
+			<form class="form"action="/product/detalle/<%=product.id%>" method="get">
 			  <input class="form-input" type="text" name="comentario" placeholder="Agregar comentario">
 			  <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 			</form>
