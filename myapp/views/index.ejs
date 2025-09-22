@@ -6,14 +6,10 @@
 <body>
 	<!-- Header -->
 	<% if (usuariooo) { %>
-		<% if (usuariooo.nombre) { %>
-			<%- include('./partials/headerLogueado') %>
-		<% } else { %>
-			<%- include('./partials/header') %>
-		<% } %>
-	<% } else { %>
-		<%- include('./partials/header') %>
-	<% } %>
+		<%- include('partials/headerLogueado') %>
+	  <% } else { %>
+		<%- include('partials/header') %>
+	  <% } %>
 	<!-- /Header -->
 	
 	<!-- Banner -->
@@ -29,6 +25,8 @@
 				<h2 class="products-title">Productos</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
+
+			
 			<% for (let i = 0; i < proddd.length; i++) { %> 
 				<div id="seeyuh" class="col-12 col-sm-6 col-lg-3"> 
 					<section class="product-box"> 
