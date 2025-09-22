@@ -26,12 +26,17 @@ const productController = {
         let id = req.params.id;
         let autoEncontrado = null;
 
-        
-
-        return res.render("product-edit", { 
-            product: autoEncontrado
-        });
-    }
+        for (let i = 0; i < db.productos.length; i++) {
+            if (db.productos[i].id == id) {
+              autoEncontrado = db.productos[i];
+              break;
+            }
+          }
+      
+          return res.render("product-edit", { 
+              product: autoEncontrado
+          });
+      }
 };
 
 module.exports = productController;

@@ -283,8 +283,8 @@ hr {
 }
 
 /* ------ Product-edit ------ */
-.form-action {
-  margin-top: 12px;
+.btn-btn-primary {
+  padding: 200px;
 }
 
 .preview img {
