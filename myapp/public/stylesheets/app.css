@@ -282,6 +282,15 @@ hr {
   box-shadow: 0 0 5px var(--green);
 }
 
+/* ------ Product-edit ------ */
+.form-action {
+  margin-top: 12px;
+}
+
+.preview img {
+  max-width: 180px;
+  height: auto;
+}
 
 /*---------Footer--------*/
 .main-footer {

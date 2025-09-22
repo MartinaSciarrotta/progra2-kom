@@ -95,7 +95,6 @@ const indexController = {
     }
   },
 
-
   profile: function(req, res) {
     const userId = req.params.id;
     

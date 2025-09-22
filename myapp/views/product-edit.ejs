@@ -13,14 +13,56 @@
 			<div class="col-12">
 				<h2 class="products-title">Editar datos del producto</h2>
 			</div>
-			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario para modificar datos de un producto del catálogo. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos. <br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////
-			</h2>
+			
 
+	<div class="col-12">
+		<% if (!product) { %>
+		<h3>No se encontró el producto a editar.</h3>
+		<% } else { %>
+		<form action="/product-edit/<%= product.id %>" method="GET" class="form"> 
+			
+			<div class="form-group">
+				<label for="id">ID</label>
+				<input type="text" id="id" name="id" value="<%= product.id %>" >
+			</div>
+	
+			<div class="form-group">
+				<label for="nombreProducto">Nombre</label>
+				<input type="text" id="nombreProducto" name="nombreProducto" value="<%= product.nombreProducto %>" required >
+			</div>
+	
+			<div class="form-group"	>
+				<label for="descripcion">Descripción</label>
+				<textarea id="descripcion" name="descripcion" rows="4" required><%= product.descripcion %></textarea> 
+				<!-- vale rows? -->
+			</div>
+	
+			<div class="form-group">
+				<label>Imagen actual</label>
+				<% if (product.imagenArchivo && product.imagenArchivo !== "") { %>
+					<div class="preview">
+						<img src="/images/products/<%= product.imagenArchivo %>" alt="Imagen de <%= product.nombreProducto %>" >
+					</div>
+				<% } else { %>
+					<p>No hay imagen cargada.</p>
+				<% } %>
+			</div>
+	
+			<div class="form-group">
+				<label for="imagen">Cambiar imagen</label>
+				<input type="text" id="imagen" name="imagen">
+				<% if (product.imagenArchivo && product.imagenArchivo !== "") { %>
+					<input name="imagenArchivoActual" value="<%= product.imagenArchivo %>">
+				<% } %>
+			</div>
+	
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary">Guardar cambios</button>
+				<a href="/product/detalle/<%= product.id %>" class="btn btn-secondary">Cancelar</a>
+			</div>
+		</form>
+		<% } %>
+	</div>
 
 	<!-- footer -->
 	<%- include('partials/footer') %>

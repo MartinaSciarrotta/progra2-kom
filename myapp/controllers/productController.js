@@ -23,7 +23,14 @@ const productController = {
     },
 
     productEdit: function(req, res) {
-        res.render('product-edit');
+        let id = req.params.id;
+        let autoEncontrado = null;
+
+        
+
+        return res.render("product-edit", { 
+            product: autoEncontrado
+        });
     }
 };
 
