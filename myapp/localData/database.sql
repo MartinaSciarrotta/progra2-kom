@@ -9,41 +9,41 @@ CREATE TABLE usuarios (
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     deletedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
-    id_usuario INT UNSIGNED
+    idUsuario INT UNSIGNED
 );
 
 CREATE TABLE productos (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    usuario_id INT UNSIGNED NOT NULL,
+    usuarioId INT UNSIGNED NOT NULL,
     imagenArchivo VARCHAR(500) NOT NULL, 
     nombreProducto VARCHAR(500) NOT NULL,
     descripcion TEXT NOT NULL,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     deletedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+    FOREIGN KEY (usuarioId) REFERENCES usuarios(id)
 );
 
 CREATE TABLE comentarios (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    id_post INT UNSIGNED NOT NULL,
-    id_usuario INT UNSIGNED NOT NULL,
+    idPost INT UNSIGNED NOT NULL,
+    idUsuario INT UNSIGNED NOT NULL,
     textoComentario TEXT NOT NULL,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     deletedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_post) REFERENCES productos(id), 
-    FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
+    FOREIGN KEY (idPost) REFERENCES productos(id), 
+    FOREIGN KEY (idUsuario) REFERENCES usuarios(id)
 ); 
 
-INSERT INTO usuarios (email, contrasena, fotoPerfil, id_usuario) VALUES
+INSERT INTO usuarios (email, contrasena, fotoPerfil, idUsuario) VALUES
     ('juan.perez@gmail.com', 'clave123', 'juan.jpg', 1),
     ('maria.garcia@gmail.com', 'pass456', 'maria.png', 2),
     ('carlos.lopez@gmail.com', 'qwerty789', 'carlos.jpeg', 3),
     ('ana.sanchez@gmail.com', 'abc123', 'ana.jpg', 4),
     ('lucas.fernandez@gmail.com', 'secreto987', 'lucas.png', 5);
 
-INSERT INTO productos (imagenArchivo, nombreProducto, descripcion, usuario_id) VALUES
+INSERT INTO productos (imagenArchivo, nombreProducto, descripcion, usuarioId) VALUES
     ('bmw_m3.jpg', 'BMW M3', 'Sedán deportivo con gran potencia y estilo.', 1),
     ('bmw_m2.jpg', 'BMW M2', 'Coupé compacto ágil y veloz.', 3),
     ('mercedes_a45s.jpg', 'Mercedes A45s', 'Hatchback AMG con alto rendimiento.', 5),
@@ -55,7 +55,7 @@ INSERT INTO productos (imagenArchivo, nombreProducto, descripcion, usuario_id) V
     ('mercedes_g500.jpg', 'Mercedes G500', 'SUV clásico con lujo y fuerza.', 5),
     ('bmw_x5.jpg', 'BMW X5', 'SUV premium con espacio y confort.', 1);
 
-INSERT INTO comentarios (textoComentario, id_post, id_usuario) VALUES
+INSERT INTO comentarios (textoComentario, idPost, idUsuario) VALUES
     ('Excelente auto, gran comodidad.', 1, 2),
     ('Diseño muy imponente.', 1, 3),
     ('Muy potente en ruta.', 1, 4),
