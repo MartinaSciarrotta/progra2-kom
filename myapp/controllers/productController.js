@@ -1,4 +1,4 @@
-const db = require ('../localData/localData');
+const db = require("../database/models");
 
 const productController = {
     productDetail: function (req, res) {
