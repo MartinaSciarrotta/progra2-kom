@@ -8,7 +8,13 @@ module.exports = function (sequelize, dataTypes ) {
             primaryKey: true,
             type: dataTypes.INTEGER,
         },
-        textoComentario: {
+        imagenArchivo: {
+            type: dataTypes.STRING,
+        },
+        nombreProducto: {
+            type: dataTypes.STRING,
+        },
+        descripcion: {
             type: dataTypes.TEXT,
         },
         usuarioId: {

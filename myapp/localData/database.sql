@@ -44,16 +44,16 @@ INSERT INTO usuarios (email, contrasena, fotoPerfil, idUsuario) VALUES
     ('lucas.fernandez@gmail.com', 'secreto987', 'lucas.png', 5);
 
 INSERT INTO productos (imagenArchivo, nombreProducto, descripcion, usuarioId) VALUES
-    ('bmw_m3.jpg', 'BMW M3', 'Sedán deportivo con gran potencia y estilo.', 1),
-    ('bmw_m2.jpg', 'BMW M2', 'Coupé compacto ágil y veloz.', 3),
-    ('mercedes_a45s.jpg', 'Mercedes A45s', 'Hatchback AMG con alto rendimiento.', 5),
-    ('mercedes_c63s.jpg', 'Mercedes C63s', 'Sedán AMG con motor potente.', 4),
-    ('audi_s3.jpg', 'Audi S3', 'Compacto deportivo con tracción quattro.', 4),
-    ('audi_rs3.jpg', 'Audi RS3', 'Versión extrema del A3, muy rápida.', 2),
-    ('bmw_m5.jpg', 'BMW M5', 'Sedán de lujo con espíritu deportivo.', 3),
-    ('audi_r8.jpg', 'Audi R8', 'Superdeportivo icónico con diseño agresivo.', 1),
-    ('mercedes_g500.jpg', 'Mercedes G500', 'SUV clásico con lujo y fuerza.', 5),
-    ('bmw_x5.jpg', 'BMW X5', 'SUV premium con espacio y confort.', 1);
+    ('bmw_m3.avif', 'BMW M3', 'Sedán deportivo con gran potencia y estilo.', 1),
+    ('m2.png', 'BMW M2', 'Coupé compacto ágil y veloz.', 3),
+    ('A45s.png', 'Mercedes A45s', 'Hatchback AMG con alto rendimiento.', 5),
+    ('c63s.png', 'Mercedes C63s', 'Sedán AMG con motor potente.', 4),
+    ('s3.png', 'Audi S3', 'Compacto deportivo con tracción quattro.', 4),
+    ('rs3.png', 'Audi RS3', 'Versión extrema del A3, muy rápida.', 2),
+    ('m5.png', 'BMW M5', 'Sedán de lujo con espíritu deportivo.', 3),
+    ('r8.png', 'Audi R8', 'Superdeportivo icónico con diseño agresivo.', 1),
+    ('g500.png', 'Mercedes G500', 'SUV clásico con lujo y fuerza.', 5),
+    ('x5.png', 'BMW X5', 'SUV premium con espacio y confort.', 1);
 
 INSERT INTO comentarios (textoComentario, idPost, idUsuario) VALUES
     ('Excelente auto, gran comodidad.', 1, 2),

@@ -14,8 +14,11 @@ module.exports = function (sequelize, dataTypes ) {
         contrasena: {
             type: dataTypes.STRING,
         },
-        idUsuario: {
+        fotoPerfil: {
             type: dataTypes.STRING,
+        },
+        idUsuario: {
+            type: dataTypes.INTEGER,
         },
         fotoPerfil: {
             type: dataTypes.STRING,
