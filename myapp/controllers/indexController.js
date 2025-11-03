@@ -12,8 +12,9 @@ const indexController = {
     
     db.Producto.findAll(relaciones)
       .then(function(resultados){
-        return res.render("index", {proddd: resultados, usuariooo: null});
+          return res.render("index", {proddd: resultados, usuariooo: null});
       })
+      
       .catch(function(error){
         return res.send(error);
       });
@@ -29,16 +30,26 @@ const indexController = {
 
   
   searchResults: function (req, res) {
-    let relaciones = {
+    const palabrasBuscadas = req.query.search;
+      
+    let filtro = {
+      where: [
+        {nombreProducto: {[op.like]: "%" + palabrasBuscadas + "%"}}
+      ],
       include: [
         {association: "usuario"},
         {association: "comentarios"}
       ]
-    };
-    
-    db.Producto.findAll(relaciones)
+    }
+   
+  
+    db.Producto.findAll(filtro)
+    //db.Producto.findAll(relaciones)
       .then(function(resultados){
-        return res.render("searchResults", {proddd: resultados, usuariooo: null});
+        //return res.send(resultados)
+     
+          return res.render("searchResults", {resultados, palabrasBuscadas})
+        
       })
       .catch(function(error){
         return res.send(error);
