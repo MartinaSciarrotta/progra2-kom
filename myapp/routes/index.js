@@ -11,7 +11,7 @@ router.get('/profile/:id', indexController.profile);
 router.post('/logout', indexController.logout);
 router.get('/search-results', indexController.searchResults);
 
-//router.post('/processLogin', userController.processLogin);
-//router.post('/createUsuario', userController.create);
+router.post('/processLogin', userController.processLogin);
+router.post('/nuevoUsuario', userController.create);
 
 module.exports = router;
