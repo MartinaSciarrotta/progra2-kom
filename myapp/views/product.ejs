@@ -30,7 +30,7 @@
 			<% } %>
   
 			<p class="product-detail-description"><%= product.descripcion %></p>
-			<p class="product-detail-description">Publicado por: <%= product.usuario_nombre %></p>
+			<p class="product-detail-description">Publicado por: <%= product.usuario.email %></p>
 		  </article>
   
 		  <div class="col-12 col-lg-4">
@@ -42,13 +42,13 @@
 				<% for (let i = 0; i < product.comentarios.length; i++) { %>
 				  <article>
 					<% if (product.comentarios[i].imagenPerfil !== "") { %>
-					  <img src="/images/users/<%= product.comentarios[i].imagenPerfil %>" alt="Foto de <%= product.comentarios[i].nombreUsuario %>">
+					  <img src="/images/users/<%= product.comentarios[i].imagenPerfil %>" alt="Foto de <%= product.comentarios[i].usuario.email %>">
 					<% } else { %>
 					  <img src="/images/users/profile-default.png" alt="Foto por defecto">
 					<% } %>
 					<div class="data">
 					  <p class="user">
-						<strong><a href="/profile/1" target="_blank"><%= product.comentarios[i].nombreUsuario %></a></strong>
+						<strong><a href="/profile/1" target="_blank"><%= product.comentarios[i].usuario.email %></a></strong>
 					  </p>
 					  <p><%= product.comentarios[i].textoComentario %></p>
 					</div>
