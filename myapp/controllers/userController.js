@@ -2,7 +2,7 @@ const db = require("../database/models");
 const op = db.Sequelize.Op;
 const bcrypt = require('bcryptjs');
 
-let userController = {
+const userController = {
     
     login: function(req, res) {
       
@@ -12,14 +12,14 @@ let userController = {
     },
 
     register: function(req, res){
-       if (req.session.usuarioLogueado) { //si el usuario ya esta logueado, redirige a la pagina de perfil
+       if (req.session.usuarioExiste) 
             return res.redirect('/profile');
-       } else {
-            return res.render('register', {
-                usuarioExiste: req.session.usuarioLogueado, //si el usuario no esta logueado, renderiza la pagina de registro
-            });
+       return res.render('register', {
+           usuarioExiste: req.session.usuarioLogueado,
        }
+       ); 
     },
+
 
     processLogin: function (req, res) { 
         let userInfo = {
@@ -69,42 +69,71 @@ let userController = {
         return res.redirect('/')
     },
 
-    create: function(req, res){
-        let formulario = req.body;
-
+    create: function (req, res) {
+        const formulario= req.body;
+    
         if (formulario.usuario == "") {
-            return res.render("register", {
+            return res.render ("register", {
+                error: "El campo no puede estar vacio",
                 usuarioExiste: req.session.usuarioLogueado,
-                error: "El campo no puede estar vacío."
             });
-
+        }
         if (formulario.email == "") {
-            return res.render("register", {
+            return res.render ("register", {
+                error: "El campo no puede estar vacio",
                 usuarioExiste: req.session.usuarioLogueado,
-                error: "El campo no puede estar vacío."
             });
         }
-
-        }
-
         if (formulario.contrasena == "") {
-            return res.render("register", {
+            return res.render ("register", {
+                error: "El campo no puede estar vacio",
                 usuarioExiste: req.session.usuarioLogueado,
-                error: "El campo no puede estar vacío."
             });
         }
-
         if (formulario.contrasena.length < 3) {
-            return res.render("register", {
+            return res.render ("register", {
+                error: "El contraseña debe tener al menos 3 caracteres",
                 usuarioExiste: req.session.usuarioLogueado,
-                error: "La contraseña debe tener al menos 3 caracteres."
             });
         }
-        }
 
+        //verifica si el email no esta registrado en la db
+        db.Usuario.findOne({where: {email: formulario.email}})
+        .then(function(usuarioExiste){
+            if (usuarioExiste) {
+                return res.render("register", {
+                    usuarioExiste: req.session.usuarioLogueado,
+                    error: "El email ya se encuentra registrado."
+                });
+            }
+            
+            const contrasenaHasheada = bcrypt.hashSync(formulario.contrasena, 10);
 
-        //luego se validar los campos, nos queda verificar que el email no este registrado en la db.   
-  };
+            db.Usuario.create({ //si el email no esta registrado, podemos creear el usuario, y hashear la contrasena
+        
+                nombre: formulario.usuario,
+                email: formulario.email,
+                contrasena: contrasenaHasheada,
+                fotoPerfil: formulario.fotoPerfil,
+            })
+            .then(function(){
+                return res.redirect("/login"); //redirigimos a la pagina de login para que el usuario pueda ingresar con su nueva cuenta
+            })
+            .catch(function(err){
+                return res.render("register", {
+                    usuarioExiste: req.session.usuarioLogueado,
+                    error: "Error. Intenta nuevamente."
+                });
+            });
+        })
+        .catch(function(err){
+            return res.render("register", {
+                usuarioExiste: req.session.usuarioLogueado,
+                error: "Error. Intenta nuevamente."
+            });
+        });
+    }
+};
 
 
 module.exports = userController;

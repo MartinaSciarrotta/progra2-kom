@@ -34,9 +34,25 @@
 			<nav class="main-navbar">
 				<ul class="left-navbar">
 					<li><a href="/">Todos los productos</a></li>
-					<li><a href="/product-add">Cargar producto</a></li>
+				
+				<% if (usuarioExiste) { %>
+					<li><a href="/product/add">Agregar producto</a></li>
+				<% } %>
 				</ul>
 				<ul class="right-navbar">
+				
+					<li>
+						Hola, <%= usuarioExiste.nombre %> <i class="fas fa-user"></i>
+					</li>
+					<li>
+						<a href="/index/profile/<%= usuarioExiste.id %>">Mi perfil</a>
+					</li>
+					<li>
+						<form action="/index/logout" method="POST">
+							<button class="logout" type="submit">Cerrar sesión <i class="fas fa-sign-in-alt"></i></button>
+						</form>
+					</li>
+				<%  else { %>
 					<li>
 						<a href="/register">Creá tu cuenta <i class="far fa-address-card"></i>
 						</a>
@@ -44,7 +60,7 @@
 					<li>
 						<a href="/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
 					</li>
-					
+				<% } %> 
 				</ul>
 			</nav>
 		</div>

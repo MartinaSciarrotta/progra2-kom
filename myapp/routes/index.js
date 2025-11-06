@@ -1,7 +1,7 @@
 let express = require('express');
 let router = express.Router();
 let indexController = require('../controllers/indexController');
-const userController = require('../controllers/userController');
+
 
 
 router.get('/', indexController.index);
@@ -11,7 +11,7 @@ router.get('/profile/:id', indexController.profile);
 router.post('/logout', indexController.logout);
 router.get('/search-results', indexController.searchResults);
 
-router.post('/processLogin', userController.processLogin);
-router.post('/nuevoUsuario', userController.create);
+//router.post('/processLogin', userController.processLogin);
+//router.post('/nuevoUsuario', userController.create);
 
 module.exports = router;
