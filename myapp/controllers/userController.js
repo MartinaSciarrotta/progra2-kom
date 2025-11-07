@@ -99,6 +99,8 @@ const userController = {
         }
 
         //verifica si el email no esta registrado en la db
+
+
         db.Usuario.findOne({ where: { email: formulario.email } })
             .then(function (usuarioExiste) {
                 if (usuarioExiste) {
@@ -106,16 +108,17 @@ const userController = {
                         usuarioExiste: req.session.usuarioLogueado,
                         error: "El email ya se encuentra registrado."
                     });
-            } ),
+                }
 
                 const contrasenaHasheada = bcrypt.hashSync(formulario.contrasena, 10);
-
                 db.Usuario.create({ //si el email no esta registrado, podemos creear el usuario, y hashear la contrasena
+
                     nombre: formulario.usuario,
                     email: formulario.email,
                     contrasena: contrasenaHasheada,
                     fotoPerfil: "",
                 })
+
                     // .then(function (usuarioCreado) {
                     //     // Crear sesión automáticamente después del registro
                     //     req.session.usuarioLogueado = {
@@ -123,30 +126,28 @@ const userController = {
                     //         nombre: usuarioCreado.nombre,
                     //         id: usuarioCreado.id,
                     //     };
-                        
-                        // Redirigir al perfil del usuario recién creado
-                        .then (function () {
-                            return res.redirect ("/user/login");
-                        }
-                    )
-                    
+
+                    // Redirigir al perfil del usuario recién creado
+                    .then(function () {
+                        return res.redirect("/user/login"); //redirigimos a la pagina de login para que el usuario pueda ingresar con su nueva cuenta
+                    })
                     .catch(function (err) {
-                        console.error(err);
                         return res.render("register", {
                             usuarioExiste: req.session.usuarioLogueado,
                             error: "Error. Intenta nuevamente."
                         });
                     });
-            }
+            })
             .catch(function (err) {
-                console.error(err);
                 return res.render("register", {
                     usuarioExiste: req.session.usuarioLogueado,
                     error: "Error. Intenta nuevamente."
                 });
-            }),
+            });
+    },
 
-    profile: function (req, res) {
+
+     profile: function (req, res) {
         const id = req.params.id;
 
         db.Usuario.findByPk(id, {
