@@ -1,61 +1,72 @@
 const db = require("../database/models");
-const op = db.Sequelize.Op;
 
 const productController = {
-  productDetail: function (req, res) {
-    let id = req.params.id;
+    productDetail: function (req, res) {
+        let idprod = req.params.id;
 
-    let relaciones = {
-      include: [
-        { association: "usuario" },
-        { association: "comentarios", include: [{ association: "usuario" }] }
-      ],
-      where: { id: id }
-    };
-
-    db.Producto.findByPk(id, relaciones)
-      .then(function (product) {
-        if (!product) {
-          return res.send("Producto no encontrado" );
-        }
-        return res.render("product", {
-          product: product,
-          usuarioExiste: req.session.usuarioLogueado,
+        db.Producto.findByPk(idprod, {
+            include: [
+                { association: "comentarios", include: [{ association: "usuario" }] },
+                { association: "usuario" }
+            ]
+        })
+        .then(function(producto) {
+            return res.render("product", {
+                product: producto,
+                usuarioExiste: req.session.usuarioLogueado
+            });
+        })
+        .catch(function(error) {
+            return res.send(error);
         });
-      })
-
-      .catch(function (error) {
-        console.error(error);
-      });
-  },
-
-    productAdd: function(req, res) {
-      // Verificar si el usuario está logueado
-      if (!req.session.usuarioLogueado) {
-        return res.redirect('/user/login');  // Redirigir a la página de login si no está logueado
-      }
-
-      res.render('product-add', {
-        usuarioExiste: req.session.usuarioLogueado
-      });
     },
 
-    productEdit: function(req, res) {
-        let id = req.params.id;
-        let autoEncontrado = null;
+    productAdd: function (req, res) {
+        if (!req.session.usuarioLogueado) {
+            return res.redirect('/user/login');
+        }
 
-        for (let i = 0; i < db.productos.length; i++) {
-            if (db.productos[i].id == id) {
-              autoEncontrado = db.productos[i];
-              break;
-            }
-          }
-      
-          return res.render("product-edit", { 
-              product: autoEncontrado,
-              usuarioExiste: req.session.usuarioLogueado,
-          });
-      }
+        return res.render('product-add', {
+            usuarioExiste: req.session.usuarioLogueado
+        });
+    },
+
+    agregarProducto: function (req, res) {
+        if (!req.session.usuarioLogueado) {
+            return res.redirect('/user/login');
+        }
+
+        db.Producto.create({
+            usuarioId: req.session.usuarioLogueado.id,
+            imagenArchivo: req.body.imagen,
+            nombreProducto: req.body.nombre,
+            descripcion: req.body.descripcion
+        })
+        .then(function(productoCreado) {
+            return res.redirect('/product/detalle/' + productoCreado.id);
+        })
+        .catch(function(error) {
+            return res.send(error);
+        });
+    },
+
+    agregarComentario: function (req, res) {
+        if (!req.session.usuarioLogueado) {
+            return res.redirect('/user/login');
+        }
+
+        db.Comentario.create({
+            idUsuario: req.session.usuarioLogueado.id,
+            idPost: req.params.id,
+            textoComentario: req.body.comentario
+        })
+        .then(function(comentarioAgregado) {
+            return res.redirect('/product/detalle/' + req.params.id);
+        })
+        .catch(function(error) {
+            return res.send(error);
+        });
+    }
 };
 
 module.exports = productController;
