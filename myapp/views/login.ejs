@@ -20,19 +20,19 @@
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
 				
-				<form action="/index/processLogin" method="POST">
+				<form action="/user/processLogin" method="POST">
 					<label>Email: </label>
 					<input type="email" name="email" required> 
 
 					<label>Contraseña: </label>
-					<input type="password" name="contrasenia" required>
+					<input type="password" name="password" required>
 
 					<div class="recordarme">
 						<input type="checkbox" name="recordarme">
 						<label for="recordarme">Recordarme</label>
 					</div>
 
-					<p>¿No tenés cuenta? <a href="/register">Registrate acá</a></p>
+					<p>¿No tenés cuenta? <a href="/user/register">Registrate acá</a></p>
 					
 					<button type="submit">Ingresar</button>
 				</form>

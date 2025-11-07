@@ -18,7 +18,10 @@ const productController = {
         if (!product) {
           return res.send("Producto no encontrado" );
         }
-        return res.render("product", { product: product });
+        return res.render("product", {
+          product: product,
+          usuarioExiste: req.session.usuarioLogueado,
+        });
       })
 
       .catch(function (error) {
@@ -26,14 +29,15 @@ const productController = {
       });
   },
 
-
     productAdd: function(req, res) {
       // Verificar si el usuario está logueado
-      if (!req.session.usuariooo) {  // Asumiendo que 'usuariooo' es el objeto de sesión del usuario
-        return res.redirect('/login');  // Redirigir a la página de login si no está logueado
+      if (!req.session.usuarioLogueado) {
+        return res.redirect('/user/login');  // Redirigir a la página de login si no está logueado
       }
 
-      res.render('product-add');
+      res.render('product-add', {
+        usuarioExiste: req.session.usuarioLogueado
+      });
     },
 
     productEdit: function(req, res) {
@@ -48,7 +52,8 @@ const productController = {
           }
       
           return res.render("product-edit", { 
-              product: autoEncontrado
+              product: autoEncontrado,
+              usuarioExiste: req.session.usuarioLogueado,
           });
       }
 };

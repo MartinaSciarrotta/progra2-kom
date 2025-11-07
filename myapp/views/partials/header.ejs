@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <body>
-    <header class="main-header">
+	<header class="main-header">
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-5 col-md-2">
@@ -9,16 +10,17 @@
 						<img src="/images/logo-auto-luxe.jpg">
 					</a>
 				</div>
-	
+
 				<div class="col-7 col-md-6">
 					<form action="/search-results" method="GET" class="search-form">
-						<input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">
+						<input type="text" name="search" placeholder="Buscar productos, marcas y más"
+							class="search-form_input">
 						<button type="submit" class="search-form_button">
-						  <img src="/images/lupa.png" alt="Buscar">
+							<img src="/images/lupa.png" alt="Buscar">
 						</button>
-					  </form>
+					</form>
 				</div>
-	
+
 				<div class="col-12 col-md-4">
 					<a class="main-header_credit-link">
 						<i class="fas fa-hand-holding-usd"></i>
@@ -26,44 +28,48 @@
 					</a>
 				</div>
 			</div>
-	
+
 			<button class="btn-toggle-navbar">
 				<i class="fas fa-bars"></i>
 			</button>
-	
+
 			<nav class="main-navbar">
 				<ul class="left-navbar">
 					<li><a href="/">Todos los productos</a></li>
+
+	<% if (!usuarioExiste) { %>
+
+		<li><a href="/user/login">Agregar producto <i class="fas fa-box"></i></a></li>
+
+		<% } else { %>
+
+		<li><a href="/product-add">Agregar producto <i class="fas fa-box"></i></a></li>
+	<% } %>
+		</ul>
+
+		<ul class="right-navbar">
+			
+			<% if (!usuarioExiste) { %>
+
+				<li><a href="/user/register">Creá tu cuenta <i class="far fa-address-card"></i></a></li>
+				<li><a href="/user/login">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
+			
+			<% } else { %>
 				
-				<% if (usuarioExiste) { %>
-					<li><a href="/product/add">Agregar producto</a></li>
-				<% } %>
-				</ul>
-				<ul class="right-navbar">
-				
-					<li>
-						Hola, <%= usuarioExiste.nombre %> <i class="fas fa-user"></i>
-					</li>
-					<li>
-						<a href="/index/profile/<%= usuarioExiste.id %>">Mi perfil</a>
-					</li>
-					<li>
-						<form action="/index/logout" method="POST">
-							<button class="logout" type="submit">Cerrar sesión <i class="fas fa-sign-in-alt"></i></button>
-						</form>
-					</li>
-				<%  else { %>
-					<li>
-						<a href="/register">Creá tu cuenta <i class="far fa-address-card"></i>
-						</a>
-					</li>
-					<li>
-						<a href="/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
-					</li>
-				<% } %> 
-				</ul>
-			</nav>
-		</div>
-	</header>
+				<li>
+					Hola, <%= usuarioExiste.nombre %> <i class="fas fa-user"></i></li>
+				<li><a href="/user/profile/<%= usuarioExiste.id %>">Mi perfil</a></li>
+				<li>
+					<form action="/user/logout" method="POST">
+						<button class="logout" type="submit">
+							Cerrar sesión <i class="fas fa-sign-in-alt"></i>
+						</button>
+					</form>
+				</li>
+			<% } %>
+		</ul>
+	</nav>
+	</div>
+</header>
 </body>
 </html>
