@@ -5,7 +5,7 @@ let userController = require('../controllers/userController');
 router.get('/login', userController.login);
 router.get('/register', userController.register);
 router.get('/profile/:id', userController.profile);
-router.post('/logout', userController.logout);
+router.get('/logout', userController.logout);
 
 router.post('/processLogin', userController.processLogin);
 router.post('/nuevoUsuario', userController.create);

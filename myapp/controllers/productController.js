@@ -13,31 +13,37 @@ const productController = {
         .then(function(producto) {
             return res.render("product", {
                 product: producto,
-                usuarioExiste: req.session.usuarioLogueado
+                user: req.session.user
             });
         })
         .catch(function(error) {
-            return res.send(error);
+            console.error(error);
+            return res.render("product", {
+                product: null,
+                user: req.session.user,
+                error: "Error al cargar el producto"
+            });
         });
     },
 
     productAdd: function (req, res) {
-        if (!req.session.usuarioLogueado) {
+        if (!req.session.user) {
             return res.redirect('/user/login');
         }
 
         return res.render('product-add', {
-            usuarioExiste: req.session.usuarioLogueado
+            user: req.session.user,
+            error: null
         });
     },
 
     agregarProducto: function (req, res) {
-        if (!req.session.usuarioLogueado) {
+        if (!req.session.user) {
             return res.redirect('/user/login');
         }
 
         db.Producto.create({
-            usuarioId: req.session.usuarioLogueado.id,
+            usuarioId: req.session.user.id,
             imagenArchivo: req.body.imagen,
             nombreProducto: req.body.nombre,
             descripcion: req.body.descripcion
@@ -46,17 +52,21 @@ const productController = {
             return res.redirect('/product/detalle/' + productoCreado.id);
         })
         .catch(function(error) {
-            return res.send(error);
+            console.error(error);
+            return res.render('product-add', {
+                user: req.session.user,
+                error: "Error al crear el producto. Intenta nuevamente."
+            });
         });
     },
 
     agregarComentario: function (req, res) {
-        if (!req.session.usuarioLogueado) {
+        if (!req.session.user) {
             return res.redirect('/user/login');
         }
 
         db.Comentario.create({
-            idUsuario: req.session.usuarioLogueado.id,
+            idUsuario: req.session.user.id,
             idPost: req.params.id,
             textoComentario: req.body.comentario
         })

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <body>
 	<header class="main-header">
 		<div class="container">
@@ -13,8 +12,7 @@
 
 				<div class="col-7 col-md-6">
 					<form action="/search-results" method="GET" class="search-form">
-						<input type="text" name="search" placeholder="Buscar productos, marcas y más"
-							class="search-form_input">
+						<input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">
 						<button type="submit" class="search-form_button">
 							<img src="/images/lupa.png" alt="Buscar">
 						</button>
@@ -36,40 +34,35 @@
 			<nav class="main-navbar">
 				<ul class="left-navbar">
 					<li><a href="/">Todos los productos</a></li>
+				</ul>
 
-	<% if (!usuarioExiste) { %>
-
-		<li><a href="/user/login">Agregar producto <i class="fas fa-box"></i></a></li>
-
-		<% } else { %>
-
-		<li><a href="/product-add">Agregar producto <i class="fas fa-box"></i></a></li>
-	<% } %>
-		</ul>
-
-		<ul class="right-navbar">
-			
-			<% if (!usuarioExiste) { %>
-
-				<li><a href="/user/register">Creá tu cuenta <i class="far fa-address-card"></i></a></li>
-				<li><a href="/user/login">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
-			
-			<% } else { %>
-				
-				<li>
-					Hola, <%= usuarioExiste.nombre %> <i class="fas fa-user"></i></li>
-				<li><a href="/user/profile/<%= usuarioExiste.id %>">Mi perfil</a></li>
-				<li>
-					<form action="/user/logout" method="POST">
-						<button class="logout" type="submit">
-							Cerrar sesión <i class="fas fa-sign-in-alt"></i>
-						</button>
-					</form>
-				</li>
-			<% } %>
-		</ul>
-	</nav>
-	</div>
-</header>
+				<ul class="right-navbar">
+					<% if (!user) { %>
+						<li>
+							<a href="/user/register">Creá tu cuenta <i class="far fa-address-card"></i></a>
+						</li>
+						<li>
+							<a href="/user/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
+						</li>
+						<li>
+							<a href="/user/login">Publicar producto <i class="fas fa-box"></i></a>
+						</li>
+					<% } else { %>
+						<li>Bienvenido: <%= user.nombre %></li>
+						<li>
+							<a href="/user/profile/<%= user.id %>">Hola <%= user.email %> <i class="fas fa-user"></i></a> 
+							<!--aca va el nombre del usuario en realidad-->
+						</li>
+						<li>
+							<a href="/product-add">Publicar producto <i class="fas fa-box"></i></a>
+						</li>
+						<li>
+							<a href="/user/logout">Cerrar sesión</a>
+						</li>
+					<% } %>
+				</ul>
+			</nav>
+		</div>
+	</header>
 </body>
 </html>

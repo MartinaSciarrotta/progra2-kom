@@ -14,8 +14,7 @@ const indexController = {
       .then(function(resultados){
           return res.render("index", {
             proddd: resultados, 
-            usuariooo: req.session.usuarioLogueado, 
-            usuarioExiste: req.session.usuarioLogueado});
+            user: req.session.user});
       })
       
       .catch(function(error){
@@ -41,7 +40,7 @@ const indexController = {
           return res.render("searchResults", {
             resultados, 
             palabrasBuscadas, 
-            usuarioExiste: req.session.usuarioLogueado})
+            user: req.session.user})
         
       })
       .catch(function(error){

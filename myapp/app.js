@@ -24,7 +24,11 @@ app.set('view engine', 'ejs');
 app.use(session({
   secret: "myapp",
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: false,
+  cookie: {
+    secure: false,
+    maxAge: 1000 * 60 * 60 * 24
+  }
 }));
 
 app.use(logger('dev'));
@@ -32,6 +36,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Middleware para pasar user a todas las vistas
+app.use(function(req, res, next) {
+    res.locals.user = req.session.user;
+    next();
+});
 
 app.use('/', indexRouter);
 app.use('/', productsRouter);

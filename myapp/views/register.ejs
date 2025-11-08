@@ -14,7 +14,7 @@
 				<h2 class="products-title">Registrate</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> 
+			<h2 class="col-12">
 				<form action="/user/nuevoUsuario" method="POST">
 					<label>Email: </label>
 					<input type="email" name="email" required> 
@@ -24,9 +24,17 @@
 
 					<label>Contraseña: </label>
 					<input type="password" name="contrasena" required>
+					<small style="display: block; color: #666; margin-top: 5px;">Debe tener al menos 3 caracteres</small>
 
 					<label>Foto de perfil: </label>
-					<input type="text" name="fotoPerfil" placeholder="ej: default-image.png" required>
+					<input type="text" name="fotoPerfil" placeholder="ej: default-image.png" value="default-image.png">
+					<small style="display: block; color: #666; margin-top: 5px;">(Opcional - por defecto: default-image.png)</small>
+
+					<% if (typeof error !== 'undefined' && error) { %>
+						<p style="color: red; padding: 10px; background-color: #ffe6e6; border-radius: 5px; margin-top: 10px;">
+							<%= error %>
+						</p>
+					<% } %>
 
 					<button type="submit" name="registrarme">Registrarme</button>
 				</form>
