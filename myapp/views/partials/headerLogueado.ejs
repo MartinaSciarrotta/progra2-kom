@@ -36,16 +36,13 @@
 					<li><a href="/product-add">Cargar producto</a></li>
 				</ul>
 				<ul class="right-navbar">
-					<li><a href="/index/profile/<%=usuario.id%>" >
-						<%= usuario.nombre %><i class=""></i>
+					<li><a href="/user/profile/<%=user.id%>" >
+						<%= user.email %><i class=""></i>
 						</a>
 						
 					</li>
 					<li>
-						<form action="/index/logout" method="POST">
-							<button class="logout" type="submit">
-								<i class="fas fa-sign-out-alt"></i>Cerrar sesión 
-							<button>
+						<a href="/user/logout">Cerrar sesión<i class="fas fa-user"></i></a>
 					</li>
 				</ul>
 			</nav>

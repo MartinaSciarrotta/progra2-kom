@@ -44,12 +44,12 @@
 					<% if (product.comentarios[i].imagenPerfil !== "") { %>
 					  <img src="/images/users/<%= product.comentarios[i].imagenPerfil %>" alt="Foto de <%= product.comentarios[i].usuario.email %>">
 					<% } else { %>
-					  <img src="/images/users/profile-default.png" alt="Foto por defecto">
+					  <img src="/images/users/default-image.png" alt="Foto por defecto">
 					<% } %>
 					<div class="data">
 					  <p class="user">
-						<strong><a href="/profile/1" target="_blank"><%= product.comentarios[i].usuario.email %></a></strong>
-					  </p>
+						<strong><a href="/user/profile/<%= user.id %>"><%= product.comentarios[i].usuario.email %></a></strong>
+					  </p> <!--esto me lleva al usuario que esta logueado, debe ser asi???-->
 					  <p><%= product.comentarios[i].textoComentario %></p>
 					</div>
 				  </article>

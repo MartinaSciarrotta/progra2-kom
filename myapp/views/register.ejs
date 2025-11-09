@@ -30,7 +30,7 @@
 					<input type="text" name="fotoPerfil" placeholder="ej: default-image.png" value="default-image.png">
 					<small style="display: block; color: #666; margin-top: 5px;">(Opcional - por defecto: default-image.png)</small>
 
-					<% if (typeof error !== 'undefined' && error) { %>
+					<% if (error) { %>
 						<p style="color: red; padding: 10px; background-color: #ffe6e6; border-radius: 5px; margin-top: 10px;">
 							<%= error %>
 						</p>
