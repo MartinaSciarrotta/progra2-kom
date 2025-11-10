@@ -6,6 +6,6 @@ router.get('/product-add', productController.productAdd);
 router.post('/product-add', productController.agregarProducto);
 router.get('/product/detalle/:id', productController.productDetail);
 router.post('/product/detalle/:id', productController.agregarComentario);
-//router.get('/product-edit/:id', productController.productEdit);
+router.get('/product-edit/:id', productController.productEdit);
 
 module.exports = router;

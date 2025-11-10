@@ -16,7 +16,10 @@
 	  <div class="d-flex align-items-center">
 		<h2 class="products-title"><%= product.nombreProducto %></h2>
 		<p class="product-detail-description" style="margin-left: 1rem;">
-		  <a href="/product-edit/<%= product.id %>">Editar</a>
+			<a href="/product-edit/<%= product.id %>">Editar</a>
+			<% if (mensaje) { %>
+				<script>alert("<%= mensaje %>");</script>
+			  <% } %>			  
 		</p>
 	  </div>
   
@@ -48,7 +51,7 @@
 					<% } %>
 					<div class="data">
 					  <p class="user">
-						<strong><a href="/user/profile/<%= user.id %>"><%= product.comentarios[i].usuario.email %></a></strong>
+						<strong><a href="/user/profile/<%= product.comentarios[i].usuario.id %>"> <%= product.comentarios[i].usuario.email %> </a></strong>
 					  </p> <!--esto me lleva al usuario que esta logueado, debe ser asi???-->
 					  <p><%= product.comentarios[i].textoComentario %></p>
 					</div>

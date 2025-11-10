@@ -13,7 +13,8 @@ const productController = {
         .then(function(producto) {
             return res.render("product", {
                 product: producto,
-                user: req.session.user
+                user: req.session.user,
+                mensaje: null
             });
         })
         .catch(function(error) {
@@ -21,7 +22,8 @@ const productController = {
             return res.render("product", {
                 product: null,
                 user: req.session.user,
-                error: "Error al cargar el producto"
+                error: "Error al cargar el producto",
+                mensaje: null
             });
         });
     },
@@ -75,6 +77,49 @@ const productController = {
         })
         .catch(function(error) {
             return res.send(error);
+        });
+    },
+
+    productEdit: function (req, res) {
+        if (!req.session.user) {
+            return res.redirect('/user/login');
+        }
+
+        let idprod = req.params.id;
+
+        db.Producto.findByPk(idprod, {
+            include: [
+                { association: "comentarios", include: [{ association: "usuario" }] },
+                { association: "usuario" }
+            ]
+        })
+
+        .then(function(producto) {
+            if (!producto) {
+                return res.send("Producto no encontrado");
+            }
+
+            if (producto.usuarioId !== req.session.user.id) {
+                return res.render("product", {
+                    product: producto,
+                    user: req.session.user,
+                    mensaje: "No tienes permiso para editar este producto"
+                });
+            }
+
+            return res.render('product-edit', {
+                product: producto,
+                user: req.session.user,
+                error: null
+            });
+        })
+        .catch(function(error) {
+            console.error(error); // Para que nosotras lo veamos
+            return res.render('product-edit', {
+                product: null,
+                user: req.session.user,
+                error: "Error al cargar el producto"
+            });
         });
     }
 };

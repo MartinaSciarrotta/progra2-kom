@@ -16,7 +16,7 @@ const userController = {
         if (req.session.user) {
             return res.redirect('/');
         } else {
-            return res.render("register");
+            return res.render("register", { error: null });
         }
     },
 
@@ -144,19 +144,19 @@ const userController = {
                 return res.send("Usuario no encontrado");
             }
 
-            let esMiPerfil = false;
-            let mostrarPerfil = false;
+            let perfilPropio = false;
+            let verPerfil = false;
 
             if (req.session.user) {
-                esMiPerfil = req.session.user.id === usuario.id;
-                mostrarPerfil = !esMiPerfil;
+                perfilPropio = req.session.user.id === usuario.id;
+                verPerfil = !perfilPropio;
             }
 
             return res.render('profile', {
                 usuariooo: usuario, 
                 proddd: usuario.productos,
-                mostrarPerfil: mostrarPerfil,
-                esMiPerfil: esMiPerfil,
+                verPerfil: verPerfil,
+                perfilPropio: perfilPropio,
                 user: req.session.user
             });
         })
