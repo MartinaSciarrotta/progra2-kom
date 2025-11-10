@@ -96,12 +96,16 @@ const userController = {
             }
 
             const passEncriptada = bcrypt.hashSync(req.body.contrasena, 10);
+             let fotoPerfil = "default-image.png";
+            if (req.body.fotoPerfil) {
+                fotoPerfil = req.body.fotoPerfil;
+            }
 
             db.Usuario.create({
                 nombre: req.body.usuario,
                 email: req.body.email,
                 contrasena: passEncriptada,
-                fotoPerfil: req.body.fotoPerfil ? req.body.fotoPerfil : "default-image.png"
+                fotoPerfil: fotoPerfil 
             })
             .then(function (usuarioCreado) {
                 req.session.user = usuarioCreado;
