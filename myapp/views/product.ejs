@@ -44,11 +44,15 @@
 			  <% } else { %>
 				<% for (let i = 0; i < product.comentarios.length; i++) { %>
 				  <article>
-					<% if (product.comentarios[i].imagenPerfil !== "") { %>
-					  <img src="/images/users/<%= product.comentarios[i].imagenPerfil %>" alt="Foto de <%= product.comentarios[i].usuario.email %>">
-					<% } else { %>
-					  <img src="/images/users/default-image.png" alt="Foto por defecto">
-					<% } %>
+				<%
+				  let imagenComentario = "profile-default.png";
+				  if (product.comentarios[i].usuario && product.comentarios[i].usuario.fotoPerfil) {
+				    imagenComentario = product.comentarios[i].usuario.fotoPerfil;
+				  } else if (product.comentarios[i].imagenPerfil) {
+				    imagenComentario = product.comentarios[i].imagenPerfil;
+				  }
+				%>
+				  <img src="/images/users/<%= imagenComentario %>" alt="Foto del usuario">
 					<div class="data">
 					  <p class="user">
 						<strong><a href="/user/profile/<%= product.comentarios[i].usuario.id %>"> <%= product.comentarios[i].usuario.email %> </a></strong>

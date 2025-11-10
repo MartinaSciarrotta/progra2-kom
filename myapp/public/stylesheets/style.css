@@ -16,8 +16,12 @@ a:hover {
   font-family: "Karla", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-};
-
-.p{
-  text-align: center;
 }
+
+.footer{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: #4a4a4a;
+    margin: 24px 0;
+  }

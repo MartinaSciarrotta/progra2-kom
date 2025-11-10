@@ -48,7 +48,7 @@ module.exports = function (sequelize, dataTypes ) {
         
         Usuario.hasMany(models.Producto, {
             foreignKey: "usuarioId",
-            as: "productos"}); //chequear el AS de las relaciones
+            as: "productos"}); 
         
         Usuario.hasMany(models.Comentario, {
             foreignKey: "idUsuario",
