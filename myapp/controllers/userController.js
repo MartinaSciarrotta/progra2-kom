@@ -57,8 +57,8 @@ const userController = {
                     };
     
                     // 5) Crear cookie si marcó “recordarme”
-                    if (recordarme) {
-                        res.cookie("emailUser", user.email, { maxAge: 60000 * 5 });
+                    if (req.body.recordarme) {
+                        res.cookie("recordarme", user.email, { maxAge: 60000 * 5 });
                     }
     
                     // 6) Redirigir al inicio
@@ -75,7 +75,7 @@ const userController = {
 
     logout: function (req, res) {
         req.session.destroy();
-        res.clearCookie('emailUser');
+        res.clearCookie('recordarme');
 
         return res.redirect('/');
     },
