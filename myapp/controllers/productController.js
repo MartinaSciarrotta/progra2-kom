@@ -126,13 +126,6 @@ const productController = {
 
     productUpdate: function (req, res){
         const idprod = req.params.id;
-
-        return res.send({
-            id: req.params.id ,
-            nombreProducto: req.body.nombreProducto,
-            descripcion: req.body.descripcion,
-            imagenArchivo: req.body.imagenArchivoActual
-        })
     
         db.Producto.findByPk(idprod)
             .then(function (producto) {
@@ -145,9 +138,10 @@ const productController = {
                
                 return db.Producto.update(
                     {
+                        id: req.params.id ,
                         nombreProducto: req.body.nombreProducto,
                         descripcion: req.body.descripcion,
-                        imagenArchivo: nuevaImagen
+                        imagenArchivo: req.body.imagenArchivoActual
                     },
                     { where: { id: idprod } }
                 )

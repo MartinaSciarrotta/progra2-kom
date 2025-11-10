@@ -19,7 +19,7 @@
 			<% if (!product) { %>
 			<h3>No se encontró el producto a editar.</h3>
 			<% } else { %>
-			<form action="/product/product-update" method="POST" class="form"> 
+			<form action="/product/product-update/<%= product.id%>" method="POST" class="form"> 
 		
 				<div class="form-group">
 					<label for="nombreProducto">Nombre</label>
