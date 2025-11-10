@@ -121,7 +121,50 @@ const productController = {
                 error: "Error al cargar el producto"
             });
         });
+    },
+
+
+    productUpdate: function (req, res){
+        const idprod = req.params.id;
+
+        return res.send({
+            id: req.params.id ,
+            nombreProducto: req.body.nombreProducto,
+            descripcion: req.body.descripcion,
+            imagenArchivo: req.body.imagenArchivoActual
+        })
+    
+        db.Producto.findByPk(idprod)
+            .then(function (producto) {
+                if (!producto) {
+                    return res.send("Producto no encontrado");
+                }
+    
+                // Actualizar los datos del producto
+
+               
+                return db.Producto.update(
+                    {
+                        nombreProducto: req.body.nombreProducto,
+                        descripcion: req.body.descripcion,
+                        imagenArchivo: nuevaImagen
+                    },
+                    { where: { id: idprod } }
+                )
+                .then(function () {
+                    return res.redirect('/product/detalle/' + idprod);
+                });
+            })
+            .catch(function (error) {
+                console.error(error);
+                return res.render('product-edit', {
+                    product: null,
+                    user: req.session.user,
+                    error: "Error al guardar los cambios del producto"
+                });
+            });
     }
+    
 };
 
 module.exports = productController;

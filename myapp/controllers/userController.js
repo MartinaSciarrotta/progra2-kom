@@ -58,7 +58,7 @@ const userController = {
     
                     // 5) Crear cookie si marcó “recordarme”
                     if (recordarme) {
-                        res.cookie("emailUser", user.email, { maxAge: 1000 * 60 * 60 * 24 * 7 });
+                        res.cookie("emailUser", user.email, { maxAge: 60000 * 5 });
                     }
     
                     // 6) Redirigir al inicio

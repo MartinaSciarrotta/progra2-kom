@@ -590,6 +590,98 @@ textarea.form-input {
   padding-bottom: 30px;
   font-size: 16px;
 }
+.info-usuario .row {
+  display: flex;
+  align-items: center; /* 🔥 centra verticalmente el bloque con respecto a la imagen */
+}
+
+.info-usuario .data-container .d-flex {
+  display: flex;
+  align-items: center; /* alinea el botón y el texto entre sí */
+  gap: 15px;           /* espacio entre botón y texto */
+}
+
+.info-usuario .data-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centra verticalmente dentro de la fila */
+}
+
+.info-usuario .data-container ul {
+  margin: 0;
+  padding: 0;
+}
+
+.info-usuario .data-container li {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+
+/*---------profile--------*/
+.info-usuario {
+  border-bottom: 1px solid #ccc;
+  padding: 60px 0 30px;
+  font-size: 16px;
+}
+
+/* fila principal del header de perfil */
+.profile-row {
+  display: flex;
+  align-items: center;          /* centra verticalmente todos */
+  justify-content: center;      /* centra todo el conjunto */
+  gap: 60px;                    /* 🔥 mismo espacio entre foto, botón y textos */
+}
+
+/* foto */
+.profile-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.foto-perfil {
+  border-radius: 50%;
+  object-fit: cover;
+  width: 150px;
+  height: 150px;
+}
+
+/* botón seguir */
+.profile-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-actions .btn {
+  background-color: #1259c3;
+  padding: 10px 30px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+}
+
+/* textos a la derecha */
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;                     /* espacio entre email y cantidad */
+}
+
+.profile-email {
+  margin: 0;
+  font-size: 22px;
+}
+
+.profile-count {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+
 
 .foto-perfil{
   border-radius: 50%;
