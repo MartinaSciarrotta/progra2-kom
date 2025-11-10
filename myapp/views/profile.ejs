@@ -12,11 +12,13 @@
     <section class="info-usuario container products-wrapper">
       <div class="row">
         <div class="img-container offset-3 col-2">
-          <img src="/images/users/<%= user.fotoPerfil%>" alt="foto de perfil" class="foto-perfil">
+          <img src="/images/users/<%= usuariooo.fotoPerfil %>" alt="foto de perfil" class="foto-perfil">
+          <h1 class="main-title"><%= usuariooo.nombre %></h1>
+          <li><%= usuariooo.email %></li>
         </div>
         <div class="data-container col-6">
           <div class="d-flex align-items-center">
-            <h1 class="main-title"><%= user.nombre %></h1>
+            <h1 class="main-title"><%= usuariooo.nombre %></h1>
             <a class="btn mt-3 ml-4" href="">SEGUIR</a>
             <ul>
               <li><%= user.email %></li>
@@ -43,8 +45,8 @@
                 <article class="product-box_data"> 
                   <h2><%= proddd[i].nombreProducto %></h2> 
                   <p><%= proddd[i].descripcion %></p> 
-                  <p> <strong> Vendedor/a: </strong> <%= user.email %></p>
-                  <p> <strong> Comentarios: </strong> <%= proddd[i].comentarios.length %></p> 
+                  <p><strong> Vendedor/a: </strong> <%= usuariooo.email %></p>
+                  <p><strong> Comentarios: </strong> <%= proddd[i].comentarios.length %></p>
                 </article>
               </a> 
             </section> 
