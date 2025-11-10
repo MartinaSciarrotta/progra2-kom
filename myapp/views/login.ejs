@@ -21,7 +21,12 @@
 			<h2 class="col-12"> 
 				
 				<form action="/user/processLogin" method="POST">
-					<label>Email: </label>
+
+					<% if (error) { %>
+						<p style="color: red; padding: 10px; background-color: #ffe6e6; border-radius: 5px; margin-top: 10px;">
+							<%= error %>
+						</p>
+					<% } %>					<label>Email: </label>
 					<input type="email" name="email" required> 
 
 					<label>Contraseña: </label>
@@ -33,11 +38,6 @@
 					</div>
 
 					<p>¿No tenés cuenta? <a href="/user/register">Registrate acá</a></p>
-					<% if (error) { %>
-						<p style="color: red; padding: 10px; background-color: #ffe6e6; border-radius: 5px; margin-top: 10px;">
-							<%= error %>
-						</p>
-					<% } %>
 					<button type="submit">Ingresar</button>
 				</form>
 			</h2>

@@ -16,7 +16,7 @@ const userController = {
         if (req.session.user) {
             return res.redirect('/');
         } else {
-            return res.render("register", { error: null });
+            return res.render("register",{error:null});
         }
     },
 
@@ -58,7 +58,7 @@ const userController = {
     
                     // 5) Crear cookie si marcó “recordarme”
                     if (recordarme) {
-                        res.cookie("emailUser", user.email, { maxAge: 60000 * 5 });
+                        res.cookie("emailUser", user.email, { maxAge: 1000 * 60 * 60 * 24 * 7 });
                     }
     
                     // 6) Redirigir al inicio
@@ -96,16 +96,12 @@ const userController = {
             }
 
             const passEncriptada = bcrypt.hashSync(req.body.contrasena, 10);
-             let fotoPerfil = "default-image.png";
-            if (req.body.fotoPerfil) {
-                fotoPerfil = req.body.fotoPerfil;
-            }
 
             db.Usuario.create({
                 nombre: req.body.usuario,
                 email: req.body.email,
                 contrasena: passEncriptada,
-                fotoPerfil: fotoPerfil 
+                fotoPerfil: req.body.fotoPerfil ? req.body.fotoPerfil : "default-image.png"
             })
             .then(function (usuarioCreado) {
                 req.session.user = usuarioCreado;
@@ -148,19 +144,19 @@ const userController = {
                 return res.send("Usuario no encontrado");
             }
 
-            let perfilPropio = false;
-            let verPerfil = false;
+            let esMiPerfil = false;
+            let mostrarPerfil = false;
 
             if (req.session.user) {
-                perfilPropio = req.session.user.id === usuario.id;
-                verPerfil = !perfilPropio;
+                esMiPerfil = req.session.user.id === usuario.id;
+                mostrarPerfil = !esMiPerfil;
             }
 
             return res.render('profile', {
                 usuariooo: usuario, 
                 proddd: usuario.productos,
-                verPerfil: verPerfil,
-                perfilPropio: perfilPropio,
+                mostrarPerfil: mostrarPerfil,
+                esMiPerfil: esMiPerfil,
                 user: req.session.user
             });
         })

@@ -16,6 +16,11 @@
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12">
 				<form action="/user/nuevoUsuario" method="POST">
+					<% if (error) { %>
+						<p style="color: red; padding: 10px; background-color: #ffe6e6; border-radius: 5px; margin-top: 10px;">
+							<%= error %>
+						</p>
+					<% } %>
 					<label>Email: </label>
 					<input type="email" name="email" required> 
 
@@ -28,11 +33,6 @@
 
 					<label>Foto de perfil: </label>
 					<input type="text" name="fotoPerfil" placeholder="ej: default-image.png" value="default-image.png">
-					<% if (error) { %>
-						<p style="color: red; padding: 10px; background-color: #ffe6e6; border-radius: 5px; margin-top: 10px;">
-							<%= error %>
-						</p>
-					<% } %>
 
 					<button type="submit" name="registrarme">Registrarme</button>
 				</form>
