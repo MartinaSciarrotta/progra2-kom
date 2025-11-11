@@ -489,6 +489,14 @@ hr {
   font-size: 1.4em;
 }
 
+.error-mensaje{
+  color: red;
+  padding: 10px;
+  background-color: #ffe6e6;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
 textarea.form-input {
   min-height: 140px;
   resize: vertical;
